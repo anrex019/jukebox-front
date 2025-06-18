@@ -4,9 +4,9 @@ import Image from 'next/image';
 const Search = () => {
 
     return (
-        <div>
-            
-            <input type="text" placeholder="Search" />
+        <div className={styles.container}>
+            <img src="Search.svg" alt="Search" width={24} height={24} />
+            <input className={styles.searchContainer} type="text" placeholder="Search" />
         </div>
     )
 }
