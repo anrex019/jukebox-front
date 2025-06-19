@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import Button from "./Button/Button";
+
+import Search from "./Search/Search";
 
 export default function Home() {
 
@@ -8,10 +9,6 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {useerLogdIn 
-        ? <Button disabled={false} title="Neutral" />
-        : <Button disabled={true} title="Disabled" />
-      }
     </div>
   );
 }
