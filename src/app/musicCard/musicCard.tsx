@@ -1,4 +1,4 @@
-import styles from '../page.module.css';
+import styles from './musicCard.module.css';
 
 type MusicCardProps = {
     numeration: number;
@@ -24,7 +24,7 @@ export default function MusicCard({numeration, picture, name, artist, date, dura
                 <div className={styles.controls}>
                 <img className={styles.timeicon} src="/time.png"/>
                 <p className={styles.duration}>{duration}</p>
-                <img className={styles.hearticon} src="/heart.png" />
+                <img className={styles.heartIcon} src="/heart.png" />
                 <img src="/threeDots.png" />
                 </div>
             </div>
