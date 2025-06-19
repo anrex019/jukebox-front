@@ -1,6 +1,6 @@
 'use client';
 
-import { AlbumCard } from './components/AlbumCard';
+import { AlbumCard } from './components/albumCard/AlbumCard';
 
 export default function HomePage() {
   return (
