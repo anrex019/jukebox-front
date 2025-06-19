@@ -1,6 +1,3 @@
-@import '../container.scss';
-
-
 .container {
     display: flex;
     align-items: center;
@@ -9,7 +6,7 @@
     border-radius: 40px;
     max-width: 308px;
     width: 100%;
-    background-color: $inputBackroundColor;
+    background-color: #27252C;
 }
 
 
@@ -18,15 +15,15 @@
     padding: 8px 12px;
     align-items: center;
     gap: 10px;
-    background-color: $inputBackroundColor;
+    background-color: #27252C;
     border: none;
     outline: none;
-    color: $inputPlacholderColor;
+    color: #CCC;
     width: 240px;
     height: 48px;
 }
 
 
 .searchContainer::placeholder {
-    color: $inputPlacholderColor;
+    color: #CCC;
 }
