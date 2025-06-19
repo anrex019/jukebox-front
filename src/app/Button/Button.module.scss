@@ -1,0 +1,46 @@
+@import '../containet.scss';
+
+
+.buttonStyles {
+    display: inline-flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: $neutralBackgroundColor;
+    border: none;
+    color: $textColor;
+    cursor: pointer;
+}
+
+
+.buttonStyles:hover:enabled {
+    color: $neutralBackgroundColor;
+    background-color: $hoverBackroundColor;
+}
+
+
+.buttonStyles:active:enabled {
+    color: $neutralBackgroundColor;
+    border: 1px solid $neutralBackgroundColor;
+}
+
+
+
+.buttonStyles:disabled {
+    background-color: $disabledBackgroundColor;
+    color: $textColor;
+}
+
+
+.buttonStyles:hover:disabled {
+    background-color: $focusedBackgroundColor;
+    color: $textColor;
+}
+
+
+.buttonStyles:active:disabled {
+    color: $neutralBackgroundColor;
+    background: none;
+}
