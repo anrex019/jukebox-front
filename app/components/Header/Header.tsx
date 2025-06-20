@@ -1,8 +1,15 @@
 import styles from './Header.module.scss';
 import Image from 'next/image';
 import Search from '../Search/Search';
+import { useState } from 'react';
 
 const Header = () => {
+    const [click, setClick] = useState(false)
+    const [isHovered, setIsHovered] = useState(false)
+
+    const onClicked = () => {
+        setClick(!click)
+    }
 
     return (
         <div className={styles.container}>
@@ -12,8 +19,13 @@ const Header = () => {
             </div>
 
             <div className={styles.allImgContainerHeader}>
-                <div className={styles.containerImgHeader}>
-                    <Image className={styles.imgHeaderContainer} src='Home.svg' alt="photo" width={24} height={24} />
+                <div onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    className={styles.containerImgHeader}>
+                    <Image className={styles.imgHeaderContainer} src={isHovered
+                        ? 'Home-Hover.svg'
+                        : 'Home.svg'}
+                        alt="photo" width={24} height={24} />
                     <p className={styles.headerTextContainer}>Home</p>
                 </div>
 
@@ -37,7 +49,14 @@ const Header = () => {
                     <p className={styles.headerTextContainer}>Albums</p>
                 </div>
             </div>
-            <Search />
+            {click === false && <div onClick={onClicked} className={styles.searchContainer}>
+                <Image src="Search.svg" alt="Search" width={24} height={24} />
+            </div>
+            }
+            {
+                click &&
+                <Search />
+            }
         </div>
     )
 }

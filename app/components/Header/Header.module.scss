@@ -64,7 +64,9 @@
     .headerTextContainer {
         color: #A50F46;
     }
+
 }
+
 
 .headerTextContainer {
     color: #6C6064;
@@ -80,4 +82,20 @@
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+
+
+.searchContainer {
+    display: flex;
+    height: 48px;
+    padding: 24px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 40px;
+    border: 1px solid rgba(86, 67, 74, 0.50);
+    background: rgba(34, 12, 25, 0.10);
+    backdrop-filter: blur(6.199999809265137px);
+    cursor: pointer;
 }
