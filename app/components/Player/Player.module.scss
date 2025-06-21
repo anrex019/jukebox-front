@@ -1,0 +1,183 @@
+.container {
+    display: flex;
+    width: 1920px;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    border-radius: 4px 4px 0px 0px;
+    background: #1C181D;
+}
+
+.artistContainer {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.artistCardContainer {
+    display: flex;
+    width: 224px;
+    align-items: center;
+    gap: 24px;
+}
+
+
+.artistNameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.artistNameImageContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.artistName {
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+.artistGroupName {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.imgStyle {
+    cursor: pointer;
+}
+
+
+.musicControlContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.controlMusicPlay {
+    display: flex;
+    width: 652px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.playAndPausContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.rangeContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.rangeStyleContainer {
+    -webkit-appearance: none;
+    width: 593px;
+    height: 4px;
+    transform: rotate(0.033deg);
+    flex-shrink: 0;
+    stroke-width: 2px;
+    stroke: #232323;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.rangeStyleContainer::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #A50F46;
+    border: none;
+    margin-top: -4px;
+}
+
+
+.time {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+
+.voisContainer {
+    display: flex;
+    width: 156px;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+
+.favouriteAndVoisContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.rangeVoisContainer {
+    -webkit-appearance: none;
+    width: 75;
+    height: 4px;
+    transform: rotate(0.033deg);
+    flex-shrink: 0;
+    stroke-width: 2px;
+    stroke: #232323;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.rangeVoisContainer::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+
+.rangeVoisContainer::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
+.rangeVoisContainer::-ms-thumb {
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
