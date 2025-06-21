@@ -33,17 +33,7 @@ const Player = () => {
                     <img className={styles.imgStyle} src="Right.svg" alt="photo" />
                 </div>
                 <div className={styles.rangeContainer}>
-                    <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        value={progress}
-                        onChange={(e) => setProgress(Number(e.target.value))}
-                        className={styles.rangeStyleContainer}
-                        style={{
-                            background: `linear-gradient(to right, #A50F46 ${progress}%, #ccc ${progress}%)`
-                        }} />
-                    <p className={styles.time}>07:23</p>
+                    
                 </div>
             </div>
             <div className={styles.voisContainer}>
