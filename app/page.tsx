@@ -1,11 +1,9 @@
-'use client';
-
-import { AlbumCard } from './components/albumCard/AlbumCard';
+import TopBanner from './components/topBanner/TopBanner';
 
 export default function HomePage() {
   return (
-    <main className="main">
-      
+    <main>
+      <TopBanner />
     </main>
   );
 }
