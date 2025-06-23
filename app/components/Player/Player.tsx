@@ -5,9 +5,20 @@ import Image from 'next/image';
 const Player = () => {
     const [progress, setProgress] = useState(30);
     const [volume, setVolume] = useState(50);
+    const [isClicked, setIsCliked] = useState(false);
+    const [click, setClick] = useState(false)
+
+    const musicClick = () => {
+        setClick(!click)
+    }
+
+    const imageClick = () => {
+        setIsCliked(!isClicked)
+    }
 
     return (
         <div className={styles.container}>
+            <audio src="" />
             <div className={styles.artistContainer}>
                 <div className={styles.artistCardContainer}>
                     <img className={styles.imgStyle} src="StarBoy.png" alt="photo" />
@@ -24,15 +35,20 @@ const Player = () => {
                     <img className={styles.imgStyle} src="Restart.svg" alt="photo" />
                 </div>
             </div>
-            <div className={styles.controlMusicPlay}>
+            <div className={styles.controlMusicPlay}
+                onClick={musicClick}
+                >
                 <div className={styles.playAndPausContainer}>
                     <img className={styles.imgStyle} src="Left.svg" alt="photo" />
                     <img className={styles.imgStyle} src="LeftMusic.svg" alt="photo" />
-                    <img className={styles.imgStyle} src="Paus.svg" alt="photo" />
+                    <img className={styles.imgStyle}
+                        src={click ? 'Paus.svg' : 'Play.svg'}
+                        alt="photo" />
                     <img className={styles.imgStyle} src="RightMusic.svg" alt="photo" />
                     <img className={styles.imgStyle} src="Right.svg" alt="photo" />
                 </div>
                 <div className={styles.rangeContainer}>
+                    <p className={styles.time}>00:00</p>
                     <input
                         type="range"
                         min="0"
@@ -47,9 +63,14 @@ const Player = () => {
                 </div>
             </div>
             <div className={styles.voisContainer}>
-                <div className={styles.favouriteAndVoisContainer}>
-                    <img className={styles.imgStyle} src="Favorit.svg" alt="photo" />
-                    <img className={styles.imgStyle} src="Vois.svg" alt="photo" />
+                <div className={styles.favouriteAndVoisContainer}
+                    onClick={imageClick}
+                >
+                    <img className={styles.imgStyle}
+                        src={
+                            isClicked ? 'Mute.svg' : 'Vois.svg'
+                        }
+                        alt="photo" />
                 </div>
                 <input type='range'
                     min="0"
