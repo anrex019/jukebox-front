@@ -22,8 +22,8 @@ const TopBanner = () => {
           <img src="/topbannerimg/play.svg" alt="Play" />
         </span>
       </button>
+    
     </div>
-
     <div className={styles.dots}>
       <img src="/topbannerimg/dot1.png" alt="dot" />
       <img src="/topbannerimg/dot2.png" alt="dot" />
@@ -31,6 +31,7 @@ const TopBanner = () => {
       <img src="/topbannerimg/dot4.png" alt="dot" />
       <img src="/topbannerimg/dot5.png" alt="dot" />
     </div>
+ 
   </div>
 </section>
   );

@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 1416px;
     min-height: 464px;
-    padding: 32px 64px;
+    padding: 32px;
 
   
     background-color: #000;
@@ -18,7 +18,11 @@
     justify-content: center;
     align-items: center;
   }
-  
+.inner {
+    display: flex;
+    flex-direction: column;
+    height: 460px;
+}
   
     
   
