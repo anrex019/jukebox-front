@@ -6,9 +6,6 @@ import Player from './components/Player/Player';
 export default function HomePage() {
   return (
     <main className="main">
-      <div className={styles.container}>
-        <Player />
-      </div>
     </main>
   );
 }
