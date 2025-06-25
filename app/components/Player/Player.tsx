@@ -23,6 +23,8 @@ const Player = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const formatTime = (time: number) => {
+    if (isNaN(time) || !isFinite(time)) return "00:00";
+
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
@@ -30,19 +32,29 @@ const Player = () => {
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio) {
+      console.log("Audio ref is null!");
+      return;
+    }
+    console.log("Audio ref loaded successfully:", audio);
 
     const updateProgress = () => {
       const current = audio.currentTime;
       const duration = audio.duration;
       setCurrentTime(current);
-      if (duration) {
+      if (duration && !isNaN(duration) && isFinite(duration)) {
         setProgress((current / duration) * 100);
       }
     };
 
     const updateDuration = () => {
-      setDuration(audio.duration);
+      if (
+        audio.duration &&
+        !isNaN(audio.duration) &&
+        isFinite(audio.duration)
+      ) {
+        setDuration(audio.duration);
+      }
     };
 
     const handleEnded = () => {
@@ -52,25 +64,47 @@ const Player = () => {
       setCurrentTime(0);
     };
 
+    const handleError = (e) => {
+      console.error("Audio loading error:", e);
+      console.error("Error details:", audio.error);
+    };
+
+    const handleCanPlay = () => {
+      console.log("Audio can play, duration:", audio.duration);
+    };
+
     audio.addEventListener("timeupdate", updateProgress);
     audio.addEventListener("loadedmetadata", updateDuration);
     audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("error", handleError);
+    audio.addEventListener("canplay", handleCanPlay);
+    audio.addEventListener("durationchange", updateDuration);
 
     return () => {
       audio.removeEventListener("timeupdate", updateProgress);
       audio.removeEventListener("loadedmetadata", updateDuration);
       audio.removeEventListener("ended", handleEnded);
+      audio.removeEventListener("error", handleError);
+      audio.removeEventListener("canplay", handleCanPlay);
+      audio.removeEventListener("durationchange", updateDuration);
     };
   }, []);
 
-  const musicClick = () => {
+  const musicClick = async () => {
+    console.log("Music click triggered, audioRef.current:", audioRef.current);
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
+      try {
+        if (isPlaying) {
+          audioRef.current.pause();
+        } else {
+          await audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+      } catch (error) {
+        console.error("Error playing audio:", error);
       }
-      setIsPlaying(!isPlaying);
+    } else {
+      console.error("Audio ref is null in musicClick!");
     }
     setClick(!click);
   };
@@ -93,7 +127,12 @@ const Player = () => {
   const progressChange = (e) => {
     const newProgress = Number(e.target.value);
     setProgress(newProgress);
-    if (audioRef.current && duration) {
+    if (
+      audioRef.current &&
+      duration &&
+      !isNaN(duration) &&
+      isFinite(duration)
+    ) {
       const newTime = (newProgress / 100) * duration;
       audioRef.current.currentTime = newTime;
       setCurrentTime(newTime);
@@ -103,11 +142,24 @@ const Player = () => {
   return (
     <>
       {songs.map((song) => (
-        <div className={styles.container}>
-          <audio src={song.music} ref={audioRef} />
+        <div key={song.id} className={styles.container}>
+          <audio
+            src={song.music}
+            ref={audioRef}
+            preload="metadata"
+            onLoadStart={() => console.log("Audio loading started")}
+            onCanPlay={() => console.log("Audio can play")}
+            onError={(e) => console.log("Audio loading error:", e)}
+          />
           <div className={styles.artistContainer}>
             <div className={styles.artistCardContainer}>
-              <Image className={styles.imgStyles} src={song.image} alt="photo" width={74} height={74} />
+              <Image
+                className={styles.imgStyles}
+                src={song.image}
+                alt="photo"
+                width={74}
+                height={74}
+              />
               <div className={styles.artistNameContainer}>
                 <div className={styles.artistNameImageContainer}>
                   <p className={styles.artistName}>{song.artistName}</p>

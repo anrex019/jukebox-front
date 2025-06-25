@@ -1,0 +1,101 @@
+.container {
+    display: flex;
+    width: 1416px;
+    height: 64px;
+    padding: 24px 8px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 383px;
+    border: 1px solid #232323;
+    background: rgba(47, 43, 44, 0.30);
+    backdrop-filter: blur(42px);
+}
+
+
+
+.usersProfileStylesCOntainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.imgStyles {
+    border-radius: 75px;
+    background: #FFF;
+    cursor: pointer;
+}
+
+
+.usertsTextContainer {
+    color: #FFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
+.containerImgHeader {
+    display: flex;
+    height: 40px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+
+.containerImgHeader:hover {
+    display: flex;
+    height: 40px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 197px;
+    border: 1px solid rgba(165, 15, 70, 0.40);
+    background: linear-gradient(95deg, rgba(165, 15, 70, 0.10) 13.49%, rgba(165, 15, 70, 0.10) 83.08%);
+    backdrop-filter: blur(10px);
+
+    .headerTextContainer {
+        color: #A50F46;
+    }
+
+}
+
+
+.headerTextContainer {
+    color: #6C6064;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+
+
+.allImgContainerHeader {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+
+.searchContainer {
+    display: flex;
+    height: 48px;
+    padding: 24px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 40px;
+    border: 1px solid rgba(86, 67, 74, 0.50);
+    background: rgba(34, 12, 25, 0.10);
+    backdrop-filter: blur(6.199999809265137px);
+    cursor: pointer;
+}
