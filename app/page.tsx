@@ -1,9 +1,10 @@
-'use client';
-import InputText from './components/inputText/InputText';
 
+import TopBanner from './components/topBanner/TopBanner';
 
 export default function HomePage() {
   return (
-   <InputText/>
+    <main>
+   
+    </main>
   );
 }
