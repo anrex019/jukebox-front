@@ -1,6 +1,3 @@
-@import '../containet.scss';
-
-
 .buttonStyles {
     display: inline-flex;
     padding: 12px 24px;
@@ -8,39 +5,39 @@
     align-items: center;
     gap: 10px;
     border-radius: 8px;
-    background-color: $neutralBackgroundColor;
+    background-color: #FF6A3D;
     border: none;
-    color: $textColor;
+    color: #FFF;
     cursor: pointer;
 }
 
 
 .buttonStyles:hover:enabled {
-    color: $neutralBackgroundColor;
-    background-color: $hoverBackroundColor;
+    color: #FF6A3D;
+    background-color: rgba(255, 106, 61, 0.10);
 }
 
 
 .buttonStyles:active:enabled {
-    color: $neutralBackgroundColor;
-    border: 1px solid $neutralBackgroundColor;
+    color: #FF6A3D;
+    border: 1px solid #FF6A3D;
 }
 
 
 
 .buttonStyles:disabled {
-    background-color: $disabledBackgroundColor;
-    color: $textColor;
+    background-color: #717171;
+    color: #FFF;
 }
 
 
 .buttonStyles:hover:disabled {
-    background-color: $focusedBackgroundColor;
-    color: $textColor;
+    background-color: #FF6A3D;
+    color: #FFF;
 }
 
 
 .buttonStyles:active:disabled {
-    color: $neutralBackgroundColor;
+    color: #FF6A3D;
     background: none;
 }
