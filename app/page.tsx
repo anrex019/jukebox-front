@@ -1,11 +1,9 @@
 'use client';
+import InputText from './components/inputText/InputText';
 
-import { AlbumCard } from './components/albumCard/AlbumCard';
 
 export default function HomePage() {
   return (
-    <main className="main">
-      
-    </main>
+   <InputText/>
   );
 }
