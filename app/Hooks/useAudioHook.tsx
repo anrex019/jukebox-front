@@ -9,69 +9,84 @@ interface Song {
 }
 
 interface UseAudioHookReturn {
-
   audioRef: React.RefObject<HTMLAudioElement>;
-
-
   currentSongIndex: number;
   currentSong: Song | null;
-
-
   isPlaying: boolean;
   progress: number;
   currentTime: number;
   duration: number;
-
-
   volume: number;
   muteClicked: boolean;
-
-
   click: boolean;
-
-
-  musicClick: () => Promise<void>;
+  isRandom: boolean;
+  isRepeat: boolean;
+  musicClick: () => void;
   muteImageClick: () => void;
   volumeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   progressChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   nextSong: () => void;
   previousSong: () => void;
   selectSong: (index: number) => void;
-
-
   formatTime: (time: number) => string;
+  toggleRandom: () => void;
+  toggleRepeat: () => void;
 }
 
 export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(50);
   const [muteClicked, setMuteClicked] = useState(false);
-  const [click, setClick] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [isRandom, setIsRandom] = useState(false);
+  const [isRepeat, setIsRepeat] = useState(false);
+  const [playedSongs, setPlayedSongs] = useState<number[]>([]);
+
   const audioRef = useRef<HTMLAudioElement>(null!);
 
+  const click = isPlaying;
   const currentSong = songs.length > 0 ? songs[currentSongIndex] : null;
 
   const formatTime = (time: number) => {
     if (isNaN(time) || !isFinite(time)) return "00:00";
-
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
-
   const resetPlaybackState = () => {
     setIsPlaying(false);
-    setClick(false);
     setProgress(0);
     setCurrentTime(0);
     setDuration(0);
   };
 
+  const getRandomSongIndex = () => {
+    if (songs.length <= 1) return 0;
+
+    if (playedSongs.length >= songs.length - 1) {
+      setPlayedSongs([currentSongIndex]);
+    }
+
+    const availableSongs = songs
+      .map((_, index) => index)
+      .filter(
+        (index) => index !== currentSongIndex && !playedSongs.includes(index)
+      );
+
+    if (availableSongs.length === 0) {
+      return (currentSongIndex + 1) % songs.length;
+    }
+
+    const randomIndex = Math.floor(Math.random() * availableSongs.length);
+    const selectedSong = availableSongs[randomIndex];
+
+    setPlayedSongs((prev) => [...prev, selectedSong]);
+    return selectedSong;
+  };
 
   const changeSong = (newIndex: number) => {
     if (newIndex >= 0 && newIndex < songs.length) {
@@ -87,13 +102,27 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
   };
 
   const nextSong = () => {
-    const nextIndex = (currentSongIndex + 1) % songs.length;
+    let nextIndex;
+
+    if (isRandom) {
+      nextIndex = getRandomSongIndex();
+    } else {
+      nextIndex = (currentSongIndex + 1) % songs.length;
+    }
+
     changeSong(nextIndex);
   };
 
   const previousSong = () => {
-    const prevIndex =
-      currentSongIndex === 0 ? songs.length - 1 : currentSongIndex - 1;
+    let prevIndex;
+
+    if (isRandom) {
+      prevIndex = getRandomSongIndex();
+    } else {
+      prevIndex =
+        currentSongIndex === 0 ? songs.length - 1 : currentSongIndex - 1;
+    }
+
     changeSong(prevIndex);
   };
 
@@ -101,20 +130,68 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
     changeSong(index);
   };
 
+  const toggleRandom = () => {
+    setIsRandom((prev) => !prev);
+    setPlayedSongs([currentSongIndex]);
+  };
+
+  const toggleRepeat = () => {
+    setIsRepeat((prev) => !prev);
+  };
+
+  const volumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = Number(e.target.value);
+    setVolume(newVolume);
+
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume / 100;
+    }
+  };
+
+  const muteImageClick = () => {
+    const newMuteState = !muteClicked;
+    setMuteClicked(newMuteState);
+    if (audioRef.current) {
+      audioRef.current.muted = newMuteState;
+    }
+  };
+
+  const progressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newProgress = Number(e.target.value);
+    setProgress(newProgress);
+    if (
+      audioRef.current &&
+      duration &&
+      !isNaN(duration) &&
+      isFinite(duration)
+    ) {
+      const newTime = (newProgress / 100) * duration;
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  };
+
+  const musicClick = () => {
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch((error) => {
+        console.error("Error playing audio:", error);
+      });
+    }
+  };
+
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) {
-      console.log("Audio ref is null!");
-      return;
-    }
-
+    if (!audio) return;
 
     if (currentSong) {
       audio.src = currentSong.music;
       audio.volume = volume / 100;
+      audio.muted = muteClicked;
     }
-
-    console.log("Audio ref loaded successfully:", audio);
 
     const updateProgress = () => {
       const current = audio.currentTime;
@@ -135,108 +212,75 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
       }
     };
 
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
     const handleEnded = () => {
       setIsPlaying(false);
-      setClick(false);
       setProgress(0);
       setCurrentTime(0);
-      // Auto-play next song
-      nextSong();
-    };
 
-    const handleError = (e: Event) => {
-      console.error("Audio loading error:", e);
-      console.error("Error details:", audio.error);
-    };
-
-    const handleCanPlay = () => {
-      console.log("Audio can play, duration:", audio.duration);
+      if (isRepeat) {
+        audio.currentTime = 0;
+        audio.play().catch((error) => {
+          console.error("Error repeating audio:", error);
+        });
+      } else {
+        nextSong();
+      }
     };
 
     audio.addEventListener("timeupdate", updateProgress);
     audio.addEventListener("loadedmetadata", updateDuration);
-    audio.addEventListener("ended", handleEnded);
-    audio.addEventListener("error", handleError);
-    audio.addEventListener("canplay", handleCanPlay);
     audio.addEventListener("durationchange", updateDuration);
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
+    audio.addEventListener("ended", handleEnded);
 
     return () => {
       audio.removeEventListener("timeupdate", updateProgress);
       audio.removeEventListener("loadedmetadata", updateDuration);
-      audio.removeEventListener("ended", handleEnded);
-      audio.removeEventListener("error", handleError);
-      audio.removeEventListener("canplay", handleCanPlay);
       audio.removeEventListener("durationchange", updateDuration);
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
+      audio.removeEventListener("ended", handleEnded);
     };
-  }, [currentSongIndex, songs, volume]);
+  }, [currentSongIndex, isRepeat]);
 
-  const musicClick = async () => {
-    console.log("Music click triggered, audioRef.current:", audioRef.current);
+  useEffect(() => {
     if (audioRef.current) {
-      try {
-        if (isPlaying) {
-          audioRef.current.pause();
-        } else {
-          await audioRef.current.play();
-        }
-        setIsPlaying(!isPlaying);
-      } catch (error) {
-        console.error("Error playing audio:", error);
-      }
-    } else {
-      console.error("Audio ref is null in musicClick!");
+      audioRef.current.volume = volume / 100;
     }
-    setClick(!click);
-  };
+  }, [volume]);
 
-  const muteImageClick = () => {
-    setMuteClicked(!muteClicked);
+  useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.muted = !muteClicked;
+      audioRef.current.muted = muteClicked;
     }
+  }, [muteClicked]);
+
+  return {
+    audioRef,
+    currentSongIndex,
+    currentSong,
+    isPlaying,
+    progress,
+    currentTime,
+    duration,
+    volume,
+    muteClicked,
+    click,
+    isRandom,
+    isRepeat,
+    musicClick,
+    muteImageClick,
+    volumeChange,
+    progressChange,
+    nextSong,
+    previousSong,
+    selectSong,
+    formatTime,
+    toggleRandom,
+    toggleRepeat,
   };
-
-  const volumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = Number(e.target.value);
-    setVolume(newVolume);
-    if (audioRef.current) {
-      audioRef.current.volume = newVolume / 100;
-    }
-  };
-
-  const progressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newProgress = Number(e.target.value);
-    setProgress(newProgress);
-    if (
-      audioRef.current &&
-      duration &&
-      !isNaN(duration) &&
-      isFinite(duration)
-    ) {
-      const newTime = (newProgress / 100) * duration;
-      audioRef.current.currentTime = newTime;
-      setCurrentTime(newTime);
-    }
-  }; 
-
-    return {
-      audioRef,
-      currentSongIndex,
-      currentSong,
-      isPlaying,
-      progress,
-      currentTime,
-      duration,
-      volume,
-      muteClicked,
-      click,
-      musicClick,
-      muteImageClick,
-      volumeChange,
-      progressChange,
-      nextSong,
-      previousSong,
-      selectSong,
-      formatTime,
-    };
 };

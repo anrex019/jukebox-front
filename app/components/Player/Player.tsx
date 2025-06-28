@@ -1,6 +1,6 @@
 import styles from "./Player.module.scss";
 import Image from "next/image";
-import { useAudioHook } from "../../Hooks/useAudioHook"; 
+import { useAudioHook } from "../../Hooks/useAudioHook";
 
 const songs = [
   {
@@ -30,7 +30,7 @@ const songs = [
     songName: "Eminem",
     image: "/Eminem.png",
     music: "/Eminem.mp3",
-  }
+  },
 ];
 
 const Player = () => {
@@ -43,6 +43,8 @@ const Player = () => {
     click,
     currentTime,
     duration,
+    isRandom,
+    isRepeat,
     musicClick,
     muteImageClick,
     volumeChange,
@@ -50,6 +52,8 @@ const Player = () => {
     nextSong,
     previousSong,
     formatTime,
+    toggleRandom,
+    toggleRepeat,
   } = useAudioHook(songs);
 
   if (!currentSong) {
@@ -78,38 +82,70 @@ const Player = () => {
             <div className={styles.artistNameContainer}>
               <div className={styles.artistNameImageContainer}>
                 <p className={styles.artistName}>{currentSong.artistName}</p>
-                <img src="Talga.svg" alt="photo" />
+                <Image src="Talga.svg" alt="photo" width={24} height={24} />
               </div>
               <p className={styles.artistGroupName}>{currentSong.songName}</p>
             </div>
           </div>
           <div className={styles.musicControlContainer}>
-            <img className={styles.imgStyle} src="Rendom.svg" alt="photo" />
-            <img className={styles.imgStyle} src="Restart.svg" alt="photo" />
+            <Image
+              className={`${styles.imgStyle} ${isRandom ? styles.active : ""}`}
+              src="Rendom.svg"
+              alt="random"
+              width={24}
+              height={24}
+              onClick={toggleRandom}
+            />
+            <Image
+              className={`${styles.imgStyle} ${isRepeat ? styles.active : ""}`}
+              src="Restart.svg"
+              alt="repeat"
+              width={24}
+              height={24}
+              onClick={toggleRepeat}
+            />
           </div>
         </div>
         <div className={styles.controlMusicPlay}>
           <div className={styles.playAndPausContainer}>
-            <img className={styles.imgStyle} src="Left.svg" alt="photo" />
-            <img
+            <Image
+              className={styles.imgStyle}
+              src="Left.svg"
+              alt="photo"
+              width={48}
+              height={48}
+            />
+            <Image
               className={styles.imgStyle}
               src="LeftMusic.svg"
               alt="photo"
               onClick={previousSong}
+              width={48}
+              height={48}
             />
-            <img
+            <Image
               className={styles.imgStyle}
               src={click ? "Paus.svg" : "Play.svg"}
               alt="photo"
               onClick={musicClick}
+              width={48}
+              height={48}
             />
-            <img
+            <Image
               className={styles.imgStyle}
               src="RightMusic.svg"
               alt="photo"
               onClick={nextSong}
+              width={48}
+              height={48}
             />
-            <img className={styles.imgStyle} src="Right.svg" alt="photo" />
+            <Image
+              className={styles.imgStyle}
+              src="Right.svg"
+              alt="photo"
+              width={48}
+              height={48}
+            />
           </div>
           <div className={styles.rangeContainer}>
             <p className={styles.time}>{formatTime(currentTime)}</p>
@@ -132,10 +168,12 @@ const Player = () => {
             className={styles.favouriteAndVoisContainer}
             onClick={muteImageClick}
           >
-            <img
+            <Image
               className={styles.imgStyle}
               src={muteClicked ? "Mute.svg" : "Vois.svg"}
               alt="photo"
+              width={24}
+              height={24}
             />
           </div>
           <input
@@ -148,6 +186,13 @@ const Player = () => {
             style={{
               background: `linear-gradient(to right, #A50F46 ${volume}%, #ccc ${volume}%)`,
             }}
+          />
+          <Image
+            className={styles.imgStyle}
+            src="/Fullscrean.svg"
+            alt="photo"
+            width={24}
+            height={24}
           />
         </div>
       </div>
