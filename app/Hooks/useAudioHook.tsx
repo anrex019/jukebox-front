@@ -64,6 +64,17 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
     setDuration(0);
   };
 
+  useEffect(() => {
+    audioRef.current
+      .play()
+      .then(() => {
+        console.log("salai");
+      })
+      .catch((error) => {
+        console.log("Error playing audio:", error);
+      });
+  }, []);
+
   const getRandomSongIndex = () => {
     if (songs.length <= 1) return 0;
 
@@ -98,21 +109,48 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
         audioRef.current.src = songs[newIndex].music;
         audioRef.current.load();
       }
+
+      if (isPlaying) {
+        audioRef.current.play().catch((error) => {
+          console.error("Error playing audio:", error);
+        });
+      }
     }
   };
+
+  console.log(isPlaying, "playing");
 
   const nextSong = () => {
     let nextIndex;
 
-    if (isRandom) {
-      nextIndex = getRandomSongIndex();
+    if (isRepeat) {
+      nextIndex = currentSongIndex % songs.length;
     } else {
-      nextIndex = (currentSongIndex + 1) % songs.length;
+      if (isRandom) {
+        nextIndex = getRandomSongIndex();
+      } else {
+        nextIndex = (currentSongIndex + 1) % songs.length;
+      }
     }
 
     changeSong(nextIndex);
-  };
 
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current
+          .play()
+          .then(() => {
+            setIsPlaying(true);
+            console.log("Playing next song");
+          })
+          .catch((error) => {
+            console.error("Error playing audio:", error);
+            setIsPlaying(false);
+          });
+      }
+    }, 100);
+  };
+  
   const previousSong = () => {
     let prevIndex;
 
@@ -221,7 +259,7 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
       setCurrentTime(0);
 
       if (isRepeat) {
-        audio.currentTime = 0;
+        audioRef.current.loop = !audioRef.current.loop;
         audio.play().catch((error) => {
           console.error("Error repeating audio:", error);
         });
