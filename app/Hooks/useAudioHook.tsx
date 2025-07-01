@@ -46,15 +46,22 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
   const [playedSongs, setPlayedSongs] = useState<number[]>([]);
 
   const audioRef = useRef<HTMLAudioElement>(null!);
+  const isRepeatRef = useRef(isRepeat);
 
   const click = isPlaying;
   const currentSong = songs.length > 0 ? songs[currentSongIndex] : null;
+
+  useEffect(() => {
+    isRepeatRef.current = isRepeat;
+  }, [isRepeat]);
 
   const formatTime = (time: number) => {
     if (isNaN(time) || !isFinite(time)) return "00:00";
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   const resetPlaybackState = () => {
@@ -63,17 +70,6 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
     setCurrentTime(0);
     setDuration(0);
   };
-
-  useEffect(() => {
-    audioRef.current
-      .play()
-      .then(() => {
-        console.log("salai");
-      })
-      .catch((error) => {
-        console.log("Error playing audio:", error);
-      });
-  }, []);
 
   const getRandomSongIndex = () => {
     if (songs.length <= 1) return 0;
@@ -99,8 +95,15 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
     return selectedSong;
   };
 
-  const changeSong = (newIndex: number) => {
-    if (newIndex >= 0 && newIndex < songs.length) {
+  const changeSong = (newIndex: number, repeatOverride?: boolean) => {
+    const repeat = repeatOverride ?? isRepeat;
+
+    if (repeat) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch((error) => {
+        console.error("Error playing audio:", error);
+      });
+    } else if (newIndex >= 0 && newIndex < songs.length) {
       resetPlaybackState();
       setCurrentSongIndex(newIndex);
 
@@ -118,31 +121,22 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
     }
   };
 
-  console.log(isPlaying, "playing");
-
   const nextSong = () => {
     let nextIndex;
 
-    if (isRepeat) {
-      nextIndex = currentSongIndex % songs.length;
+    if (isRandom) {
+      nextIndex = getRandomSongIndex();
     } else {
-      if (isRandom) {
-        nextIndex = getRandomSongIndex();
-      } else {
-        nextIndex = (currentSongIndex + 1) % songs.length;
-      }
+      nextIndex = (currentSongIndex + 1) % songs.length;
     }
 
-    changeSong(nextIndex);
+    changeSong(nextIndex, false);
 
     setTimeout(() => {
       if (audioRef.current) {
         audioRef.current
           .play()
-          .then(() => {
-            setIsPlaying(true);
-            console.log("Playing next song");
-          })
+          .then(() => console.log("Playing next song"))
           .catch((error) => {
             console.error("Error playing audio:", error);
             setIsPlaying(false);
@@ -150,7 +144,7 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
       }
     }, 100);
   };
-  
+
   const previousSong = () => {
     let prevIndex;
 
@@ -161,11 +155,11 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
         currentSongIndex === 0 ? songs.length - 1 : currentSongIndex - 1;
     }
 
-    changeSong(prevIndex);
+    changeSong(prevIndex, false);
   };
 
   const selectSong = (index: number) => {
-    changeSong(index);
+    changeSong(index, false);
   };
 
   const toggleRandom = () => {
@@ -233,10 +227,10 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
 
     const updateProgress = () => {
       const current = audio.currentTime;
-      const duration = audio.duration;
+      const dur = audio.duration;
       setCurrentTime(current);
-      if (duration && !isNaN(duration) && isFinite(duration)) {
-        setProgress((current / duration) * 100);
+      if (dur && !isNaN(dur) && isFinite(dur)) {
+        setProgress((current / dur) * 100);
       }
     };
 
@@ -254,13 +248,9 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
     const handlePause = () => setIsPlaying(false);
 
     const handleEnded = () => {
-      setIsPlaying(false);
-      setProgress(0);
-      setCurrentTime(0);
-
-      if (isRepeat) {
-        audioRef.current.loop = !audioRef.current.loop;
-        audio.play().catch((error) => {
+      if (isRepeatRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current.play().catch((error) => {
           console.error("Error repeating audio:", error);
         });
       } else {
@@ -283,7 +273,7 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
       audio.removeEventListener("pause", handlePause);
       audio.removeEventListener("ended", handleEnded);
     };
-  }, [currentSongIndex, isRepeat]);
+  }, [currentSongIndex]);
 
   useEffect(() => {
     if (audioRef.current) {

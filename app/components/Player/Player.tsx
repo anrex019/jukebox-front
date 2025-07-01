@@ -63,13 +63,7 @@ const Player = () => {
   return (
     <>
       <div key={currentSong.id} className={styles.container}>
-        <audio
-          ref={audioRef}
-          preload="metadata"
-          onLoadStart={() => console.log("Audio loading started")}
-          onCanPlay={() => console.log("Audio can play")}
-          onError={(e) => console.log("Audio loading error:", e)}
-        />
+        <audio ref={audioRef} preload="metadata" />
         <div className={styles.artistContainer}>
           <div className={styles.artistCardContainer}>
             <Image
@@ -89,16 +83,16 @@ const Player = () => {
           </div>
           <div className={styles.musicControlContainer}>
             <Image
-              className={`${styles.imgStyle} ${isRandom ? styles.active : ""}`}
-              src="Rendom.svg"
+              className={styles.imgStyle}
+              src={isRandom ? '/Rendom.svg' : 'Rendom-on.svg'}
               alt="random"
               width={24}
               height={24}
               onClick={toggleRandom}
             />
             <Image
-              className={`${styles.imgStyle} ${isRepeat ? styles.active : ""}`}
-              src="Restart.svg"
+              className={styles.imgStyle}
+              src={isRepeat ? "/Replay.svg" : "/Replay-on.svg"}
               alt="repeat"
               width={24}
               height={24}
@@ -130,6 +124,7 @@ const Player = () => {
               onClick={musicClick}
               width={48}
               height={48}
+              style={{ cursor: "pointer" }}
             />
             <Image
               className={styles.imgStyle}
@@ -138,6 +133,7 @@ const Player = () => {
               onClick={nextSong}
               width={48}
               height={48}
+              style={{ cursor: "pointer" }}
             />
             <Image
               className={styles.imgStyle}
@@ -174,6 +170,7 @@ const Player = () => {
               alt="photo"
               width={24}
               height={24}
+              style={{ cursor: "pointer" }}
             />
           </div>
           <input
