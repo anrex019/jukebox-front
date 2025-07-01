@@ -7,7 +7,7 @@ const InputText = () => {
   const [value, setValue] = useState('');
   const [state, setState] = useState<'neutral' | 'success' | 'warning' | 'error'>('neutral');
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { value: any; }; }) => {
     const val = e.target.value;
     const inputValue = e.target.value;
     setValue(inputValue);
