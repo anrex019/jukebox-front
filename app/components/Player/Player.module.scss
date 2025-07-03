@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  width: 1920px;
+  min-width: 100vW;
   padding: 16px 24px;
   justify-content: center;
   align-items: center;
