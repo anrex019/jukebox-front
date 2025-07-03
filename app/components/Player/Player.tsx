@@ -7,7 +7,7 @@ const songs = [
     id: 1,
     artistName: "Star Boy",
     songName: "The Weeknd",
-    image: "/Starboy.png",
+    image: "/StarBoy.png",
     music: "/TheWeeknd.mp3",
   },
   {
