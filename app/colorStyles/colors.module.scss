@@ -1,0 +1,147 @@
+/*
+   Navigation*/
+
+.navigationBackground {
+    background-color: #24191D30;
+}
+
+.navigationBlur20 {
+    backdrop-filter: blur(20px);
+}
+
+
+/*
+     Navigation Stroke
+                            */
+
+.navigationStrokePrimary {
+    border-color: #581D4AFF;
+}
+
+.navigationStrokeSecondary {
+    border-color: #56434A50;
+}
+
+
+/* 
+     Button
+                                     */
+
+.buttonBackgroundPrimaryLinear {
+    background: linear-gradient(180deg, #a50f4610 0%, #a50f4640 100%);
+}
+
+.buttonStrokePrimary {
+    border-color: #a50f4640;
+}
+
+.buttonBlur20 {
+    backdrop-filter: blur(20px);
+}
+
+
+/* 
+     Search
+                     */
+
+.searchBackgroundPrimary {
+    background-color: #220C1910;
+}
+
+.searchStrokePrimary {
+    border-color: #56434A50;
+}
+
+.searchBlur12_4 {
+    backdrop-filter: blur(12.4px);
+}
+
+
+/* 
+     Text and Icons
+                         */
+
+.textPrimary {
+    color: #A50F46;
+}
+
+.textSecondary {
+    color: #56434A50;
+}
+
+
+/*    
+     Card
+                 */
+
+.cardBackground {
+    background-color: #1A0F1630;
+}
+
+.cardBlur12 {
+    backdrop-filter: blur(12px);
+}
+
+.cardStrokePrimary {
+    border-color: #EA156350;
+}
+
+.cardStrokeSecondary {
+    border-color: #56434A50;
+}
+
+.cardBackgroundPrimary {
+    background-color: #1A0F16;
+}
+
+.cardBackgroundSecondary {
+    background-color: #000000;
+}
+
+.cardTextPrimary {
+    color: #FFFFFF;
+}
+
+/* color albums /*
+
+
+/* Stroke */
+.albumStrokePrimary {
+    border-color: #56434A50;
+}
+
+.albumStrokeSecondary {
+    border-color: #EA156320;
+}
+
+/* Background */
+.albumBackgroundPrimary {
+    background-color: #00000050;
+}
+
+/* Text */
+.albumTextPrimary {
+    color: #FFFFFF;
+}
+
+/* color artist /*
+
+
+/* Stroke */
+.artistStrokePrimary {
+    border-color: #56434A50;
+}
+
+.artistStrokeSecondary {
+    border-color: #EA156320;
+}
+
+/* Background */
+.artistBackgroundPrimary {
+    background-color: #00000050;
+}
+
+/* Text */
+.artistTextPrimary {
+    color: #FFFFFF;
+}
