@@ -156,6 +156,18 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
     }
 
     changeSong(prevIndex, false);
+
+    setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current
+          .play()
+          .then(() => console.log("Playing previous song"))
+          .catch((error) => {
+            console.error("Error playing audio:", error);
+            setIsPlaying(false);
+          });
+      }
+    }, 100);
   };
 
   const selectSong = (index: number) => {
@@ -163,8 +175,24 @@ export const useAudioHook = (songs: Song[]): UseAudioHookReturn => {
   };
 
   const toggleRandom = () => {
-    setIsRandom((prev) => !prev);
-    setPlayedSongs([currentSongIndex]);
+    setIsRandom((prev) => {
+      const newRandom = !prev;
+
+      if (newRandom) {
+        const randomIndex = getRandomSongIndex();
+        setPlayedSongs([randomIndex]);
+        changeSong(randomIndex, false);
+
+        setTimeout(() => {
+          audioRef.current?.play().catch((err) => {
+            console.error("Error playing random song:", err);
+          });
+          setIsPlaying(true);
+        }, 0);
+      }
+
+      return newRandom;
+    });
   };
 
   const toggleRepeat = () => {
