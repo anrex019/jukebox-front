@@ -41,4 +41,11 @@ export enum Color {
     ArtistStrokeSecondary = 'artistStrokeSecondary',
     ArtistBackgroundPrimary = 'artistBackgroundPrimary',
     ArtistTextPrimary = 'artistTextPrimary',
+
+      /* background */ 
+
+    BackgroundPrimary = 'backgroundPrimary',
+    BackgroundBlurSecondary = ' backgroundBlurSecondary'
   }
+
+

@@ -1,6 +1,3 @@
-/*
-   Navigation*/
-
 .navigationBackground {
     background-color: #24191D30;
 }
@@ -8,7 +5,6 @@
 .navigationBlur20 {
     backdrop-filter: blur(20px);
 }
-
 
 /*
      Navigation Stroke
@@ -21,7 +17,6 @@
 .navigationStrokeSecondary {
     border-color: #56434A50;
 }
-
 
 /* 
      Button
@@ -39,7 +34,6 @@
     backdrop-filter: blur(20px);
 }
 
-
 /* 
      Search
                      */
@@ -56,7 +50,6 @@
     backdrop-filter: blur(12.4px);
 }
 
-
 /* 
      Text and Icons
                          */
@@ -68,7 +61,6 @@
 .textSecondary {
     color: #56434A50;
 }
-
 
 /*    
      Card
@@ -104,7 +96,6 @@
 
 /* color albums /*
 
-
 /* Stroke */
 .albumStrokePrimary {
     border-color: #56434A50;
@@ -126,7 +117,6 @@
 
 /* color artist /*
 
-
 /* Stroke */
 .artistStrokePrimary {
     border-color: #56434A50;
@@ -145,3 +135,14 @@
 .artistTextPrimary {
     color: #FFFFFF;
 }
+
+/* BACKGROUND */
+
+.backgroundPrimary {
+    color: #0A0C10;
+}
+
+.backgroundBlurSecondary {
+    background-color: #00000080;]
+    backdrop-filter: blur(20px);
+  }
