@@ -1,11 +1,15 @@
-import Table from "./components/table/table"
-import TopBanner from './components/topBanner/TopBanner';
-import image from "../public/images/DieWithSmile.png"
+
+"use client";
+import styles from "./page.module.css";
+import { AlbumCard } from "./components/albumCard/AlbumCard";
+import Player from "./components/Player/Player";
 
 export default function HomePage() {
   return (
-    <main>
-      <Table />
+    <main className="main">
+      <div className={styles.container}>
+        <Player />
+      </div>
     </main>
   );
 }
