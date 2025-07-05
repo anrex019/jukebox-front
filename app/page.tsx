@@ -1,11 +1,12 @@
+'use client';
 
-"use client";
-import styles from "./page.module.css";
+import TopHits from './components/songListPage/TopHits';
+import TopCharts from './components/songListPage/TopCharts';
 
 export default function HomePage() {
   return (
-    <main className="main">
-
+    <main>
+     
     </main>
   );
 }
