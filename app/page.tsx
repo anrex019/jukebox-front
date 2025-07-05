@@ -5,8 +5,8 @@ import TopCharts from './components/songListPage/TopCharts';
 
 export default function HomePage() {
   return (
-    <main>
-     
-    </main>
+    <main className="main">
+
+        </main>
   );
 }
