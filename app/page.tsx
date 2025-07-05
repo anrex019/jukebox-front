@@ -7,9 +7,7 @@ import TopHits from '@/components/TopHits/TopHits';
 
 const Page = () => {
   return (
-    <main style={{ padding: '40px' }}>
-      <TopHits />
-    </main>
+  <div></div>
   );
 };
 
