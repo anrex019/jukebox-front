@@ -1,14 +1,9 @@
+"use client";
+import styles from "./page.module.css";
 
-'use client';
-
-
-import React from 'react';
-import TopHits from '@/components/TopHits/TopHits';
-
-const Page = () => {
+export default function HomePage() {
   return (
-  <div></div>
+    <main className="main">
+    </main>
   );
-};
-
-export default Page;
+}
