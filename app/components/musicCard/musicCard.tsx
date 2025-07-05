@@ -1,11 +1,11 @@
-import styles from './musicCard.module.css';
+import styles from './musicCard.module.scss';
 
 type MusicCardProps = {
     numeration: number;
     picture: any;
     name: string;
     artist: string;
-    date: string;
+    date: any;
     duration: string;
 }
 
@@ -14,7 +14,7 @@ export default function MusicCard({numeration, picture, name, artist, date, dura
             <div className={styles.musicCard}>
                 <div className={styles.musicCardDetails}>
                 <h2 className={styles.number}>{numeration}</h2>
-                <img src={picture} />
+                <img src={picture} width={56} height={56}/>
                 <div className={styles.nameAndAuthor}>
                 <h2 className={styles.musicName}>{name}</h2>
                 <p className={styles.artist}>{artist}</p>
