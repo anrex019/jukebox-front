@@ -1,10 +1,16 @@
 
-"use client";
-import styles from "./page.module.css";
-import { AlbumCard } from "./components/albumCard/AlbumCard";
-import Player from "./components/Player/Player";
+'use client';
 
-export default function HomePage() {
- 
-  
-}
+
+import React from 'react';
+import TopHits from '@/components/TopHits/TopHits';
+
+const Page = () => {
+  return (
+    <main style={{ padding: '40px' }}>
+      <TopHits />
+    </main>
+  );
+};
+
+export default Page;
