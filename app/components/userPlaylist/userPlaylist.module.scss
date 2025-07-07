@@ -1,1 +1,94 @@
 @import "../../colorStyles/colors.module.scss";
+
+
+
+.jail {
+    position: relative;
+    width: 226px;
+    height: auto;
+}
+
+.image {
+    border-radius: 12px;
+}
+
+.hoverImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 226px;
+    height: 195px;
+    border-radius: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    background-color: #00000050;
+}
+
+.jail:hover .hoverImg,
+.jail:focus-within .hoverImg {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.threeDots {
+    position: absolute;
+    top: 165px;
+    left: 190px;
+}
+
+.play {
+    position: absolute;
+    left: 80px;
+    top: 60px;
+}
+
+.popup {
+    position: absolute;
+    left: 200px;
+    top: 180;
+    background: #1C1921CC;
+    color: $textPrimary;
+    padding: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    z-index: 100;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 300px;
+}
+
+.playlist {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 4px 4px 12px 4px;
+    border-bottom: 1px solid #FFFFFF50;
+    border-radius: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.playlist:hover,
+.trash:hover {
+    background-color: #ffffff40;
+}
+
+.trash {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 10px 4px 6px 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.title {
+    color: $textPrimary;
+    text-align: center;
+}
