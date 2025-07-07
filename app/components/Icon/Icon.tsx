@@ -1,6 +1,6 @@
 
 import React from 'react';
-import styles from './Icon.module.scss';
+import styles from './icon.module.scss';
 
 type IconProps = {
   name: string;
@@ -14,13 +14,14 @@ type IconProps = {
 const Icon = ({ name, isActive, onClick, alt, width, height }: IconProps) => {
   return (
     <img
-      src={`/icons/${name}.svg`}
-      alt={alt}
-      width={width}
-      height={height}
-      onClick={onClick}
-      className={`${styles.icon} ${isActive ? styles.active : ''}`}
-    />
+    src={`/icon/${name}.svg`}
+    alt={alt}
+    width={width}
+    height={height}
+    onClick={onClick}
+    className={`${styles.icon} ${isActive ? styles.active : ''}`}
+  />
+  
   );
 };
 
