@@ -1,6 +1,6 @@
 
 import React from 'react';
-import styles from './Icon.module.scss';
+import styles from './icon.module.scss'
 
 type IconProps = {
   name: string;
