@@ -13,14 +13,13 @@ type IconProps = {
 const Icon = ({ name, isActive, onClick, alt, width, height }: IconProps) => {
   return (
     <img
-    src={`/icon/${name}.svg`}
-    alt={alt}
-    width={width}
-    height={height}
-    onClick={onClick}
-    className={`${styles.icon} ${isActive ? styles.active : ''}`}
-  />
-  
+      src={`/icons/${name.toLowerCase()}.svg`}
+      alt={alt}
+      width={width}
+      height={height}
+      onClick={onClick}
+      className={`${styles.icon} ${isActive ? styles.active : ''}`}
+    />
   );
 };
 
