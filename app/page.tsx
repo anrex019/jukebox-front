@@ -8,5 +8,6 @@ export default function HomePage() {
     <main className="main">
       <TopHits/>
     </main>
+
   );
 }
