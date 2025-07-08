@@ -1,5 +1,5 @@
+import styles from './Icon.module.scss'
 import React from 'react';
-import styles from './Icon.module.scss';
 
 type IconProps = {
   name: string;
@@ -13,7 +13,7 @@ type IconProps = {
 const Icon = ({ name, isActive, onClick, alt, width, height }: IconProps) => {
   return (
     <img
-      src={`/icons/${name}.svg`}
+      src={`/icons/${name.toLowerCase()}.svg`}
       alt={alt}
       width={width}
       height={height}
