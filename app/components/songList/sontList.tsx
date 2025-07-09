@@ -94,7 +94,6 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
         ))}
       </div>
 
-      {/* Delete Modal */}
       {confirmDeleteId !== null && (
         <div className={styles.modalOverlay} onClick={() => setConfirmDeleteId(null)}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
@@ -112,7 +111,6 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
         </div>
       )}
 
-      {/* Playlist Modal */}
       {showPlaylistModal && (
         <div className={styles.modalOverlay} onClick={() => setShowPlaylistModal(false)}>
           <div className={styles.createModal} onClick={(e) => e.stopPropagation()}>
