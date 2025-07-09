@@ -14,11 +14,11 @@ const HomePages = () => {
         <TopBanner />
       </div>
       <div className={styles.hitStyle}>
-        <TopHits />
+        <MusicCard numeration={1} picture={undefined} name={"awd"} artist={"awdaw"} date={1221} duration={"awdw"} />
       </div>
       <PopularArtists />
       <div className={styles.hitStyle}>
-        <TopCharts />
+        <MusicCard numeration={1} picture={undefined} name={""} artist={""} date={undefined} duration={""} />
       </div>
     </div>
   );
