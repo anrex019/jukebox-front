@@ -1,8 +1,12 @@
+import { songs } from '../data/charts-data';
+import HitListHeader from '../HitListHeader/HitListHeader';
 import SongList from '../songList/sontList';
-import { songs } from '../data/hits-data';
 
-const TopHits = () => {
-  return <SongList title="Top Hits" songs={songs} />;
+const TopCharts = () => {
+  return (
+    <div>
+ <SongList title="Top Hits" songs={songs} />;    </div>
+  );
 };
 
-export default TopHits;
+export default TopCharts;
