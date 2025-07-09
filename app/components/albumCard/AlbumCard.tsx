@@ -25,3 +25,5 @@ export function AlbumCard({ title, image, onClick }: AlbumCardProps) {
     </div>
   );
 }
+
+export default AlbumCard;
