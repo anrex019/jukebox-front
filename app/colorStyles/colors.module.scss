@@ -1,4 +1,5 @@
 
+
 $navigationBackground:#24191D30;
 $buttonStrokePrimary:#a50f4640;
 $textPrimary:#FFF;
@@ -17,7 +18,6 @@ $buttonBackground:#EA1563;
     backdrop-filter: blur(20px);
 }
 
-
 /*
      Navigation Stroke
                             */
@@ -29,7 +29,6 @@ $buttonBackground:#EA1563;
 .navigationStrokeSecondary {
     border-color: #56434A50;
 }
-
 
 /* 
      Button
@@ -49,7 +48,6 @@ $buttonBackground:#EA1563;
     backdrop-filter: blur(20px);
 }
 
-
 /* 
      Search
                      */
@@ -66,7 +64,6 @@ $buttonBackground:#EA1563;
     backdrop-filter: blur(12.4px);
 }
 
-
 /* 
      Text and Icons
                          */
@@ -78,7 +75,6 @@ $buttonBackground:#EA1563;
 .textSecondary {
     color: #56434A50;
 }
-
 
 /*    
      Card
@@ -116,7 +112,6 @@ $buttonBackground:#EA1563;
 
 /* color albums /*
 
-
 /* Stroke */
 .albumStrokePrimary {
     border-color: #56434A50;
@@ -138,7 +133,6 @@ $buttonBackground:#EA1563;
 
 /* color artist /*
 
-
 /* Stroke */
 .artistStrokePrimary {
     border-color: #56434A50;
@@ -157,3 +151,14 @@ $buttonBackground:#EA1563;
 .artistTextPrimary {
     color: #FFFFFF;
 }
+
+/* BACKGROUND */
+
+.backgroundPrimary {
+    color: #0A0C10;
+}
+
+.backgroundBlurSecondary {
+    background-color: #00000080;]
+    backdrop-filter: blur(20px);
+  }
