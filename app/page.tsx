@@ -11,8 +11,7 @@ export default function HomePage() {
 
 
     <main className={styles.wrapper}>
-      <TopCharts />
-      <TopHits />
+ 
       
     
     </main>
