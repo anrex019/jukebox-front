@@ -9,6 +9,8 @@ type userPlaylistProps = {
 export default function UserPlaylist({image, title}: userPlaylistProps ) {
 
     const [showPopup, setShowPopup] = useState(false);
+    const [showInnerPopup, setShowInnerPopup] = useState(false);
+    const [showSecondPopup, setShowSecondPopup] = useState(false);
 
 
     return(
@@ -21,18 +23,52 @@ export default function UserPlaylist({image, title}: userPlaylistProps ) {
             </div>
                 {showPopup && (
         <div className={styles.popup}>
-            <div className={styles.playlist}>
+            <div onClick={() => {
+                setShowInnerPopup(true);
+                setShowSecondPopup(false);
+                setShowPopup(false);
+            }} className={styles.playlist}>
+                
             <img src="/addToPlaylist.png" />
             <p>Add To Playlist</p>
             </div>
-            <div className={styles.trash}>
+            <div onClick={() => {
+                setShowSecondPopup(true);
+                setShowInnerPopup(false);
+                setShowPopup(false);
+            }}  className={styles.trash}>
             <img src="/trash.png" />
             <p>Delete</p>
             </div>
             </div>)}
             <h3 className={styles.title}>{title}</h3>
             </div>
-            
+            {showInnerPopup && (
+                    <div className={styles.innerPopup}>
+                        <div className={styles.popupHeader}>
+                        <h2 className={styles.create}>Create Playlist</h2>
+                        <img onClick={() => setShowInnerPopup(false)} src="/close.svg" />
+                        </div>
+                        <div className={styles.inputAndTitle}>
+                        <p className={styles.playlistTitle}>Playlist Title:</p>
+                        <input type="text" placeholder="Filter Playlist" className={styles.input} />
+                        </div>
+                        <div className={styles.buttons}>
+                            <button onClick={() => setShowInnerPopup(false)} className={styles.notNow}>Not Now</button>
+                            <button className={styles.createBtn}>Create</button>
+                        </div>
+                        </div>
+                )}
+            {showSecondPopup && (
+                <div className={[styles.innerPopup, styles.secondPopup].join(" ")}>
+                    <img className={styles.warning} src="/warning.svg" />
+                    <p className={styles.playlistTitle}>Are you sure you want to delete this Chart?</p>
+                    <div className={styles.buttons}>
+                        <button onClick={() => setShowSecondPopup(false)} className={styles.notNow}>No</button>
+                        <button className={styles.createBtn}>Yes</button>
+                    </div>
+                </div>
+            )}
         </>
     )
 }

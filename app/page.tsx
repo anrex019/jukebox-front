@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <main className="main">
       <div className={styles.container}>
-        <UserPlaylist image="/LanaDelRey.png" title="Lana Del Rey" />
+        <UserPlaylist image="/LanaDelRey.png" title="Lana Del Rey" /> 
       </div>
     </main>
   );

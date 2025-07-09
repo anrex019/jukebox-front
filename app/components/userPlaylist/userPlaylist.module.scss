@@ -74,7 +74,7 @@
 
 .playlist:hover,
 .trash:hover {
-    background-color: #ffffff40;
+    background-color: #ffffff10;
 }
 
 .trash {
@@ -91,4 +91,111 @@
 .title {
     color: $textPrimary;
     text-align: center;
+    margin-top: 16px;
+}
+
+.innerPopup {
+    max-width: 666px;
+    width: 100%;
+    margin: auto;
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid rgba(86, 67, 74, 0.50);
+    background: rgba(234, 21, 99, 0.01);
+    backdrop-filter: blur(6.25px);
+    z-index: 100;
+    color: $textPrimary;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.popupHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create {
+    color: $textPrimary;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+}
+
+.playlistTitle {
+    color: $textPrimary;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.input {
+    border-radius: 8px;
+    border: 1px solid rgba(86, 67, 74, 0.50);
+    background: rgba(234, 21, 99, 0.01);
+    padding: 12px 16px;
+    color: $textPrimary;
+}
+
+
+.input::placeholder {
+    color: gray;
+}
+
+.inputAndTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notNow {
+    padding: 16px 24px;
+    max-width: 277px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #56434A;
+    background: rgba(86, 67, 74, 0.20);
+    backdrop-filter: blur(12px);
+    color: $textPrimary;
+}
+
+.notNow:hover {
+    background: rgba(86, 67, 74, 0.40);
+    backdrop-filter: blur(6px);
+}
+
+.notNow:active {
+    background: rgba(86, 67, 74, 0.60);
+}
+ 
+.createBtn {
+    background-color: $buttonBackground;
+    color: $textPrimary;
+    max-width: 277px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+}
+
+.createBtn:hover {
+    background-color: $strokePrimary;
+}
+
+.createBtn:active {
+    background-color: $buttonStrokePrimary;
+}
+
+.secondPopup {
+    display: flex;
+    gap: 16px;
+    text-align: center;
+}
+
+.warning {
+    align-self: center;
 }
