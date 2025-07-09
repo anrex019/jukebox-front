@@ -1,6 +1,7 @@
 import styles from './Icon.module.scss'
 import React from 'react';
 
+
 type IconProps = {
   name: string;
   isActive?: boolean;

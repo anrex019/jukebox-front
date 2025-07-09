@@ -11,13 +11,14 @@
 
   .dropdown {
     position: relative;
-    display: inline-block;
+   display: flex;
 
     .dropdown-btn {
       display: flex;
       padding: 12px 16px;
       justify-content: center;
       align-items: center;
+      width: 172px;
       gap: 8px;
       border-radius: 8px;
       border: 1px solid rgba(86, 67, 74, 0.50);
@@ -38,6 +39,7 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 4px;
+      margin-top: 4px;
       border-radius: 8px;
       border: 1px solid rgba(85, 66, 76, 0.5);
       background: rgba(19, 15, 20, 0.3);

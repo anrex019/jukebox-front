@@ -1,7 +1,9 @@
+"use client"
+
 import styles from "./Header.module.scss";
 import Image from "next/image";
 import Search from "../Search/Search";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const Header = () => {
   const [click, setClick] = useState(false);
@@ -11,14 +13,14 @@ const Header = () => {
   const [isHoveredCharts, setIsHoveredCharts] = useState(false);
   const [isHoveredAlbums, setIsHoveredAlbums] = useState(false);
 
-  const searchRef = useRef(null);
+  const searchRef = useRef<HTMLDivElement>(null);
 
   const onClicked = () => {
     setClick(!click);
   };
 
   useEffect(() => {
-    const clickOutside = (e) => {
+    const clickOutside = (e: any) => {
       if (searchRef.current && !searchRef.current.contains(e.target)) {
         setClick(false);
       }
