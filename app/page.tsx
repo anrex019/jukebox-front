@@ -7,6 +7,8 @@ export default function HomePage() {
   return (
     <main className={styles.wrapper}>
       <HomePages />
+
     </main>
+
   );
 }
