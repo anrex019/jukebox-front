@@ -1,19 +1,11 @@
-
 "use client";
-import TopHits from "./components/songListPage/TopHits";
-import styles from "./page.module.css";
-import { AlbumCard } from "./components/albumCard/AlbumCard";
-import Player from "./components/Player/Player";
-import UserPlaylist from "./components/userPlaylist/userPlaylistComp";
-
+import UserPlaylistsList from './components/userPlaylist/userPlaylistComp';
+import styles from './page.module.css';
 
 export default function HomePage() {
   return (
-    <main className="main">
-      <div className={styles.container}>
-        <UserPlaylist image="/LanaDelRey.png" title="Lana Del Rey" /> 
-      </div>
-      <TopHits/>
+    <main className={styles.wrapper}>
+      <UserPlaylistsList />
     </main>
 
   );
