@@ -6,7 +6,7 @@ export const userPlaylistData = [
       title: "Bruno Mars",
     },
     {
-      image: "/LanaDelRey.png",
+      image: "/lanadelray.png",
       title: "Lana Del Ray",
     },
     {
