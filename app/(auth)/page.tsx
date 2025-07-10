@@ -4,6 +4,7 @@ import TopBanner from "@/components/topBanner/TopBanner";
 import PopularArtists from "@/components/PopularArtists/PopularArtists";
 import TopHits from "@/components/songListPage/TopHits";
 import TopCharts from "@/components/songListPage/TopCharts";
+import UserPlaylistsList from "@/components/userPlaylist/userPlaylistComp";
 
 const HomePages = () => {
   return (
@@ -12,6 +13,7 @@ const HomePages = () => {
       <div className={styles.hitStyle}>
         <TopHits />
       </div>
+      <UserPlaylistsList />
       <PopularArtists />
       <div className={styles.hitStyle}>
         <TopCharts />
