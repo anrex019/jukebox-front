@@ -1,3 +1,4 @@
+"use client";
 import styles from "./Player.module.scss";
 import Image from "next/image";
 import { useAudioHook } from "../../Hooks/useAudioHook";
@@ -84,7 +85,7 @@ const Player = () => {
           <div className={styles.musicControlContainer}>
             <Image
               className={styles.imgStyle}
-              src={isRandom ? '/Rendom.svg' : 'Rendom-on.svg'}
+              src={isRandom ? "/Rendom.svg" : "Rendom-on.svg"}
               alt="random"
               width={24}
               height={24}

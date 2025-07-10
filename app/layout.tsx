@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { RecoilWrapper } from "./components/RecoilWrapper/RecoilWrapper";
 import Player from "./components/Player/Player";
+import Header from "./components/Header/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <RecoilWrapper>
+          <Header />
           {children}
+          <Player />
         </RecoilWrapper>
       </body>
     </html>
