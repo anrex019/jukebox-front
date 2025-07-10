@@ -1,0 +1,322 @@
+.songListWrapper {
+  padding: 40px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.songList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.songCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(24, 12, 21, 0.3);
+  border: 1px solid rgba(234, 21, 99, 0.5);
+  border-radius: 14px;
+
+  &:hover {
+    border: 1px solid rgba(86, 67, 77, 0.5);
+    background: rgba(26, 15, 22, 0.1);
+    backdrop-filter: blur(6px);
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 30%;
+}
+
+.cover {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+.playOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.songCard:hover .playOverlay {
+  opacity: 1;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+}
+
+.artist {
+  font-size: 14px;
+  color: #aaa;
+  margin: 0;
+}
+
+.date {
+  color: #ccc;
+  font-size: 14px;
+  flex: 1;
+  text-align: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 30%;
+  justify-content: flex-end;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #ccc;
+}
+
+.options {
+  position: relative;
+  cursor: pointer;
+  color: #999;
+}
+
+.optionsMenu {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(86, 67, 74, 0.5);
+  background: rgba(39, 37, 44, 0.6);
+  backdrop-filter: blur(6.25px);
+  padding: 8px 0;
+  z-index: 100;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menuItem {
+  padding: 10px 16px;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.delete {
+  color: #ff5f5f;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  width: 100%;
+  max-width: 730px;
+  height: 230px;
+  border-radius: 24px;
+  border: 1px solid rgba(86, 67, 74, 0.5);
+  background: rgba(234, 21, 99, 0.01);
+  backdrop-filter: blur(6.2px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.modalIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.warningBackground {
+  border-radius: 46px;
+  border: 1px solid rgba(90, 90, 90, 0.5);
+  background: rgba(204, 204, 204, 0.35);
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalText {
+  margin-bottom: 24px;
+  font-size: 18px;
+  color: white;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.yesBtn {
+  background: #ff006a;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.noBtn {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.createModal {
+  display: flex;
+  width: 730px;
+  padding: 32px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(86, 67, 74, 0.50);
+  background: rgba(234, 21, 99, 0.01);
+  backdrop-filter: blur(6.25px);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.createTitle {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.playlistLabel {
+  font-size: 18px;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.playlistInput {
+  display: flex;
+  padding: 12px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(86, 67, 74, 0.50);
+  background: rgba(234, 21, 99, 0.01);
+  color: #808080;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 682px;
+  align-self: center;
+}
+
+.yesBtn,
+.noBtn {
+  width: 100%;
+}
+
+.noBtn {
+  border-radius: 8px;
+  border: 1px solid rgba(86, 67, 74, 0.50);
+  background: rgba(86, 67, 74, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.yesBtn {
+  border-radius: 8px;
+  background: #EA1563;
+}
+
+
+.closeIcon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
