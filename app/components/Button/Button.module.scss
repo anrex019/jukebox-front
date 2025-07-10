@@ -1,3 +1,5 @@
+@import "../../colorStyles/colors.module.scss";
+
 .buttonStyles {
     display: inline-flex;
     padding: 12px 24px;
@@ -7,7 +9,7 @@
     border-radius: 8px;
     background-color: #FF6A3D;
     border: none;
-    color: #FFF;
+    color: $textPrimary;
     cursor: pointer;
 }
 

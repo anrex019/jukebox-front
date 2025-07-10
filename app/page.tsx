@@ -1,6 +1,6 @@
 "use client";
-import HomePages from "./(auth)/page";
-import styles from "./page.module.css";
+
+import styles from './page.module.css';
 
 export default function HomePage() {
   return (

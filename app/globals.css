@@ -3,6 +3,9 @@
   padding: 0;
   margin: 0;
 }
+{
+ font-family: inter;
+}
 
 html, body {
   margin: 0;
@@ -22,3 +25,6 @@ body {
   background-size: cover;
 }
 
+body {
+  height: 50vw;
+}

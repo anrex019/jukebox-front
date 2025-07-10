@@ -1,3 +1,15 @@
+
+
+$navigationBackground:#24191D30;
+$buttonStrokePrimary:#a50f4640;
+$textPrimary:#FFF;
+$backgroundPrimary:#0A0C10;
+$textSecondary:#56434A50;
+$strokePrimary:#EA156350;
+$strokeSecondary:#56434A50;
+$buttonBackground:#EA1563;
+
+
 .navigationBackground {
     background-color: #24191D30;
 }
@@ -25,6 +37,8 @@
 .buttonBackgroundPrimaryLinear {
     background: linear-gradient(180deg, #a50f4610 0%, #a50f4640 100%);
 }
+
+
 
 .buttonStrokePrimary {
     border-color: #a50f4640;
@@ -90,6 +104,8 @@
     background-color: #000000;
 }
 
+
+
 .cardTextPrimary {
     color: #FFFFFF;
 }
@@ -112,7 +128,7 @@
 
 /* Text */
 .albumTextPrimary {
-    color: #FFFFFF;
+    color: $textPrimary;
 }
 
 /* color artist /*
@@ -143,6 +159,6 @@
 }
 
 .backgroundBlurSecondary {
-    background-color: #00000080;]
+    background-color: #00000080;
     backdrop-filter: blur(20px);
   }

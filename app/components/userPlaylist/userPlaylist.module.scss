@@ -1,0 +1,235 @@
+@import "../../colorStyles/colors.module.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px 0 20px;
+}
+
+.popularText {
+  color: #fff;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.seeTextStyle {
+  color: #a50f46;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.jail {
+  position: relative;
+  width: 226px;
+  height: auto;
+}
+
+.image {
+  border-radius: 12px;
+}
+
+.hoverImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 226px;
+  height: 195px;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  background-color: #00000050;
+}
+
+.jail:hover .hoverImg,
+.jail:focus-within .hoverImg {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.threeDots {
+  position: absolute;
+  top: 165px;
+  left: 190px;
+}
+
+.play {
+  position: absolute;
+  left: 80px;
+  top: 60px;
+}
+
+.popup {
+  position: absolute;
+  left: 200px;
+  top: 180;
+  background: #1c1921cc;
+  color: $textPrimary;
+  padding: 16px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(12px);
+  width: 300px;
+}
+
+.playlist {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 4px 4px 12px 4px;
+  border-bottom: 1px solid #ffffff50;
+  border-radius: 2px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.playlist:hover,
+.trash:hover {
+  background-color: #ffffff10;
+}
+
+.trash {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 10px 4px 6px 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.title {
+  color: $textPrimary;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.innerPopup {
+  max-width: 666px;
+  width: 100%;
+  margin: auto;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(86, 67, 74, 0.5);
+  background: rgba(234, 21, 99, 0.01);
+  backdrop-filter: blur(6.25px);
+  z-index: 100;
+  color: $textPrimary;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.create {
+  color: $textPrimary;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.playlistTitle {
+  color: $textPrimary;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.input {
+  border-radius: 8px;
+  border: 1px solid rgba(86, 67, 74, 0.5);
+  background: rgba(234, 21, 99, 0.01);
+  padding: 12px 16px;
+  color: $textPrimary;
+}
+
+.input::placeholder {
+  color: gray;
+}
+
+.inputAndTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notNow {
+  padding: 16px 24px;
+  max-width: 277px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #56434a;
+  background: rgba(86, 67, 74, 0.2);
+  backdrop-filter: blur(12px);
+  color: $textPrimary;
+}
+
+.notNow:hover {
+  background: rgba(86, 67, 74, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.notNow:active {
+  background: rgba(86, 67, 74, 0.6);
+}
+
+.createBtn {
+  background-color: $buttonBackground;
+  color: $textPrimary;
+  max-width: 277px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+}
+
+.createBtn:hover {
+  background-color: $strokePrimary;
+}
+
+.createBtn:active {
+  background-color: $buttonStrokePrimary;
+}
+
+.secondPopup {
+  display: flex;
+  gap: 16px;
+  text-align: center;
+}
+
+.warning {
+  align-self: center;
+}
