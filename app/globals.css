@@ -4,24 +4,21 @@
   margin: 0;
 }
 
-body {
+html, body {
   margin: 0;
-  height: 100vh;
+  min-height: 100%;
+}
+
+body {
   background:
     radial-gradient(circle at center, #0a0c10 0%, transparent 90%),
     radial-gradient(circle at 0% 100%, #0a0c10 0%, transparent 95%),
     radial-gradient(circle at 100% 0%, #0a0c10 0%, transparent 95%),
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(165, 15, 70, 0.5) 0%,
-      transparent 80%
-    ),
-    radial-gradient(
-      circle at 85% 90%,
-      rgba(165, 15, 70, 0.5) 0%,
-      transparent 80%
-    );
-
+    radial-gradient(circle at 20% 20%, rgba(165, 15, 70, 0.5) 0%, transparent 80%),
+    radial-gradient(circle at 85% 90%, rgba(165, 15, 70, 0.5) 0%, transparent 80%);
   background-color: #0a0c10;
-  background-blend-mode: normal;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
