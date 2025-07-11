@@ -4,7 +4,7 @@ import TopBanner from "@/components/topBanner/TopBanner";
 import PopularArtists from "@/components/PopularArtists/PopularArtists";
 import TopHits from "@/components/songListPage/TopHits";
 import TopCharts from "@/components/songListPage/TopCharts";
-import UserPlaylistsList from "@/components/userPlaylist/userPlaylistComp";
+import UserPlaylistsList from "@/(auth)/userPlaylist/userPlaylistComp";
 
 const HomePages = () => {
   return (
