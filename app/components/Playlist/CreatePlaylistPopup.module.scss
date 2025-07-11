@@ -1,0 +1,95 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+}
+
+.popup {
+  width: 100%;
+  border-radius: 24px;
+  border: 1px solid rgba(86, 67, 74, 0.50);
+  background: rgba(234, 21, 99, 0.01);
+  backdrop-filter: blur(6.25px);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 730px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.inputGroup {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  align-items: flex-start;
+  text-align: left;
+}
+
+.inputGroup label {
+  color: white;
+  text-align: left;
+  width: 100%;
+  font-size: 16px;
+}
+
+.input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.yesBtn,
+.noBtn {
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 50%;
+}
+
+.yesBtn {
+  background: #ea1563;
+  color: white;
+  border: none;
+}
+
+.noBtn {
+  border: 1px solid rgba(86, 67, 74, 0.5);
+  background: rgba(234, 21, 99, 0.04);
+  color: white;
+}
