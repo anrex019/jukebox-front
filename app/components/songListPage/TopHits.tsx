@@ -1,11 +1,11 @@
-import { songs } from '../data/charts-data';
-import HitListHeader from '../HitListHeader/HitListHeader';
-import SongList from '../songList/sontList';
+import { songs } from "../data/charts-data";
+import SongList from "../../(auth)/songList/sontList";
 
 const TopCharts = () => {
   return (
     <div>
- <SongList title="Top Hits" songs={songs} />;    </div>
+      <SongList title="Top Hits" songs={songs} />;{" "}
+    </div>
   );
 };
 

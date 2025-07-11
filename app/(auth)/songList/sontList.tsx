@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 import styles from './songList.module.scss';
-import { Song } from '../typesSongList/song';
-import HitListHeader from '../HitListHeader/HitListHeader';
-import Icon from '../Icon/Icon';
+import { Song } from '../../components/typesSongList/song';
+import HitListHeader from '../../components/HitListHeader/HitListHeader';
+import Icon from '../../components/Icon/Icon';
 
 type Props = {
   songs: Song[];
