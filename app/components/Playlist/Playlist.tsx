@@ -1,9 +1,10 @@
 'use client';
-
-import { useState } from 'react';
-import Image from 'next/image';
-import { Character } from './interface/Playlis-props.interface';
-import { characters as initialCharacters } from '../Playlist/dummy/Playlist-dummy';
+ 
+//კონფლიქტი აქვს და ისე არ მოგვარდა მაგიტო ჩავაკომენტარე by ანრიკოოოოოოო
+// import { useState } from 'react';
+// import Image from 'next/image';
+// import { Character } from './interface/Playlis-props.interface';
+// import { characters as initialCharacters } from '../Playlist/dummy/Playlist-dummy';
 
 import styles from './Playlist.module.scss';
 import popupStyles from './CreatePlaylistPopup.module.scss';
