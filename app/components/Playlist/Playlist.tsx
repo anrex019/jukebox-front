@@ -26,10 +26,12 @@ const CustomSelect = ({
   selected,
   onChange,
   onDeleteClick,
+  onEditClick,
 }: {
   selected: Option;
   onChange: (option: Option) => void;
   onDeleteClick: (value: string) => void;
+  onEditClick: (option: Option) => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -53,7 +55,17 @@ const CustomSelect = ({
             <div key={option.value} className={styles.optionRow}>
               <span onClick={() => handleSelect(option)}>{option.label}</span>
               <div className={styles.icons}>
-                <Image src="/Redact.svg" alt="edit" width={20} height={20} />
+                <Image
+                  src="/Redact.svg"
+                  alt="edit"
+                  width={20}
+                  height={20}
+                  style={{ cursor: 'pointer' }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onEditClick(option);
+                  }}
+                />
                 <Image
                   src="/remove.svg"
                   alt="delete"
@@ -85,6 +97,10 @@ const Playlist = () => {
 
   const [showCreatePopup, setShowCreatePopup] = useState(false);
   const [newPlaylistTitle, setNewPlaylistTitle] = useState('');
+
+  const [editTitleValue, setEditTitleValue] = useState('');
+  const [editOption, setEditOption] = useState<Option | null>(null);
+  const [showEditPopup, setShowEditPopup] = useState(false);
 
   const handleDropdownDeleteClick = (value: string) => {
     setPendingDeleteId(value);
@@ -133,6 +149,27 @@ const Playlist = () => {
     }
   };
 
+  const handleEditPlaylist = () => {
+    if (editOption && editTitleValue.trim()) {
+      const updatedValue = editTitleValue.toLowerCase().replace(/\s+/g, '-');
+
+      const updatedOptions = dropdownOptions.map((opt) =>
+        opt.value === editOption.value
+          ? { label: editTitleValue.trim(), value: updatedValue }
+          : opt
+      );
+
+      setDropdownOptions(updatedOptions);
+      if (selectedOption.value === editOption.value) {
+        setSelectedOption({ label: editTitleValue.trim(), value: updatedValue });
+      }
+
+      setEditTitleValue('');
+      setEditOption(null);
+      setShowEditPopup(false);
+    }
+  };
+
   return (
     <div className={styles.center}>
       <div className={styles.container}>
@@ -143,6 +180,11 @@ const Playlist = () => {
               selected={selectedOption}
               onChange={(option) => setSelectedOption(option)}
               onDeleteClick={handleDropdownDeleteClick}
+              onEditClick={(option) => {
+                setEditOption(option);
+                setEditTitleValue(option.label);
+                setShowEditPopup(true);
+              }}
             />
           </div>
 
@@ -150,7 +192,7 @@ const Playlist = () => {
             className={styles.newPlaylistContainerStyle}
             onClick={() => setShowCreatePopup(true)}
           >
-            <Image src="Plus.svg" alt="plus" height={10} width={10} />
+            <Image src="/Plus.svg" alt="plus" height={10} width={10} />
             <p className={styles.createParagap}>Create new playlist</p>
           </div>
         </div>
@@ -195,6 +237,39 @@ const Playlist = () => {
           onChange={setNewPlaylistTitle}
           onConfirm={handleCreatePlaylist}
         />
+      )}
+
+      {showEditPopup && editOption && (
+        <div className={popupStyles.overlay} onClick={() => setShowEditPopup(false)}>
+          <div className={popupStyles.popup} onClick={(e) => e.stopPropagation()}>
+            <div className={popupStyles.header}>
+              <h2 style={{ color: 'white' }}>Change Playlist Name</h2>
+              <button className={popupStyles.closeBtn} onClick={() => setShowEditPopup(false)}>
+                ✕
+              </button>
+            </div>
+
+            <div className={popupStyles.inputGroup}>
+              <label>Playlist title:</label>
+              <input
+                type="text"
+                placeholder="New playlist name"
+                value={editTitleValue}
+                onChange={(e) => setEditTitleValue(e.target.value)}
+                className={popupStyles.input}
+              />
+            </div>
+
+            <div className={popupStyles.buttons}>
+              <button className={popupStyles.noBtn} onClick={() => setShowEditPopup(false)}>
+                Not Now
+              </button>
+              <button className={popupStyles.yesBtn} onClick={handleEditPlaylist}>
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
