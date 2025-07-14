@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+
+.musicCard {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16 auto;
+    max-width: 1380px;
+    width: 90%;
+    color: #FFFFFFCC;
+    font-family: inter;
+    border-radius: 12px;           
+    background-color: #1A0F16;
+    cursor: pointer;
+    font-family: inter;
+}
+
+.musicCard:hover {
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background:
+    linear-gradient(70deg, #7B103A, #0D0206) border-box,
+    linear-gradient(90deg, #250D19 0%, #300C1D 100%) padding-box;
+    backdrop-filter: blur(6px);
+}
+
+
+.musicCardDetails {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin: 0px 16px;
+    max-width: 491px;
+    width: 100%;
+}
+
+.musicName {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.artist {
+    font-size: 14px;
+    color: rgba(108, 96, 100, 0.80);
+}
+
+.duration {
+    font-size: 16px;
+    color: #6C6064
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+@media (min-width: 745px) {
+    .heartIcon {
+        display: none;
+    }
+}

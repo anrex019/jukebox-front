@@ -1,0 +1,37 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 300px;
+}
+
+.input {
+  display: flex;
+  max-width: 369px;
+  height: 48px;
+  padding: 16px 24px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(86, 67, 74, 0.50);
+  background: rgba(234, 21, 99, 0.01);
+  backdrop-filter: blur(27.5px);
+}
+
+.state_neutral .input {
+  border: 1px solid rgba(86, 67, 74, 0.50);
+  background: rgba(234, 21, 99, 0.01);
+}
+
+.state_success .input {
+  border: 1px solid #17D881;
+}
+
+.state_warning .input {
+  border: 1px solid #CFBA00;
+}
+
+.state_error .input {
+  border: 1px solid #E43601;
+}
+

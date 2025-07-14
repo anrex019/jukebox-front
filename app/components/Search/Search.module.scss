@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 0px 21px;
+    border-radius: 40px;
+    max-width: 308px;
+    width: 100%;
+    background-color: #27252C;
+}
+
+
+.searchContainer {
+    display: flex;
+    padding: 8px 12px;
+    align-items: center;
+    gap: 10px;
+    background-color: #27252C;
+    border: none;
+    outline: none;
+    color: #CCC;
+    width: 240px;
+    height: 48px;
+}
+
+
+.searchContainer::placeholder {
+    color: #CCC;
+}

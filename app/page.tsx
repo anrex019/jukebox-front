@@ -1,15 +1,9 @@
-'use client';
-
-import { AlbumCard } from './components/AlbumCard';
+"use client";
+import styles from './page.module.css';
 
 export default function HomePage() {
   return (
-    <main className="main">
-      <AlbumCard
-        title="Eminem"
-        image="/images/eminem.jpg"
-        onClick={() => console.log('Clicked')}
-      />
+    <main className={styles.wrapper}>
     </main>
   );
 }

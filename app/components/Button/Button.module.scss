@@ -1,0 +1,45 @@
+@import "../../colorStyles/colors.module.scss";
+
+.buttonStyles {
+    display: inline-flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: #FF6A3D;
+    border: none;
+    color: $textPrimary;
+    cursor: pointer;
+}
+
+
+.buttonStyles:hover:enabled {
+    color: #FF6A3D;
+    background-color: rgba(255, 106, 61, 0.10);
+}
+
+
+.buttonStyles:active:enabled {
+    color: #FF6A3D;
+    border: 1px solid #FF6A3D;
+}
+
+
+
+.buttonStyles:disabled {
+    background-color: #717171;
+    color: #FFF;
+}
+
+
+.buttonStyles:hover:disabled {
+    background-color: #FF6A3D;
+    color: #FFF;
+}
+
+
+.buttonStyles:active:disabled {
+    color: #FF6A3D;
+    background: none;
+}

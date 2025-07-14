@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { RecoilWrapper } from "./components/RecoilWrapper/RecoilWrapper";
+import Player from "./components/Player/Player";
+import Header from "./components/Header/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,8 +16,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet"
+        ></link>
+      </head>
       <body>
-        {children}
+        <RecoilWrapper>
+          <Header />
+          {children}
+          <Player />
+        </RecoilWrapper>
       </body>
     </html>
   );
