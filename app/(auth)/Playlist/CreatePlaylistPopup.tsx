@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import styles from './CreatePlaylistPopup.module.scss';
 
 interface Props {
   onClose: () => void;
   onCreate: (title: string) => void;
+  value: string;
+  onChange: Dispatch<SetStateAction<string>>;
+  onConfirm: () => void;
 }
 
 const CreatePlaylistPopup: React.FC<Props> = ({ onClose, onCreate }) => {

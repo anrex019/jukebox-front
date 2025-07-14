@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styles from './PopularArtists.module.scss';
+import Image from 'next/image';
 
 const artists = [
   { name: 'Bruno Mars', image: '/popularArtist/brunoMars.jpg' },
@@ -23,7 +24,7 @@ const PopularArtists = () => {
       <div className={styles.artistGrid}>
         {artists.map((artist, index) => (
           <div key={index} className={styles.artistCard}>
-            <img src={artist.image} alt={artist.name} className={styles.artistImage} />
+            <Image src={artist.image} alt={artist.name} className={styles.artistImage} width={100} height={100} />
             <p className={styles.artistName}>{artist.name}</p>
           </div>
         ))}

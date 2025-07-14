@@ -20,8 +20,8 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const clickOutside = (e: any) => {
-      if (searchRef.current && !searchRef.current.contains(e.target)) {
+    const clickOutside = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
         setClick(false);
       }
     };

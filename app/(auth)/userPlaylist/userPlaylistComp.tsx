@@ -16,7 +16,7 @@ function UserPlaylist({ image, title }: userPlaylistProps) {
   return (
     <>
       <div className={styles.jail}>
-        <img className={styles.image} src={image} alt={title} />
+        <Image className={styles.image} src={image} alt={title} width={226} height={195} />
         <div className={styles.hoverImg}>
           <Image
             className={styles.play}
