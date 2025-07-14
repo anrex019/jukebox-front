@@ -47,7 +47,6 @@ const LogIn = (props: props) => {
                     message: "Entered value does not match email format",
                   },
                 })}
-                type="email"
               />
               {errors.email && (
                 <ErrorMassage>{errors.email.message}</ErrorMassage>
@@ -69,7 +68,7 @@ const LogIn = (props: props) => {
                 <Image
                   className={styles.inputPositionStyle}
                   onClick={toggleShowPassword}
-                  src={showPassword ? "/Hide.svg" : "/HideOff.svg"}
+                  src={showPassword ? "/HideOff.svg" : "/Hide.svg"}
                   alt="photo"
                   width={24}
                   height={24}

@@ -27,7 +27,6 @@ const InputText = () => {
         value={value}
         onChange={handleChange}
       />
-     
     </div>
   );
 };
