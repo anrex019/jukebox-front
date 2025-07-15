@@ -1,3 +1,4 @@
+"use client";
 import styles from "./LogIn.module.scss";
 import Image from "next/image";
 import { useState } from "react";
@@ -95,7 +96,7 @@ const LogIn = (props: props) => {
               />
               <p className={styles.account}>
                 Don’t you have an account?{" "}
-                <Link className={styles.singUpStyle} href="/signup">
+                <Link className={styles.singUpStyle} href="/register">
                   Sign Up
                 </Link>
               </p>

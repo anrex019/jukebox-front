@@ -1,21 +1,19 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-
-const publicRoutes = ["/login", "/singup"];
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
 export default async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
-  const cookie = request.cookies.get("token");
+  const token = request.cookies.get('token')?.value;
 
-  const token = cookie?.value;
+  const publicRoutes = ['/', '/LogIn', '/register'];
   const pathIsPublic = publicRoutes.includes(path);
 
   if (pathIsPublic && token) {
-    return NextResponse.redirect(new URL("/", request.url));
+    return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
   if (!token && !pathIsPublic) {
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(new URL('/LogIn', request.url));
   }
 
   return NextResponse.next();
@@ -23,6 +21,6 @@ export default async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api|static|.*\\..*|_next).*)",
+    '/((?!api|_next/static|_next/image|.*\\..*|favicon.ico).*)',
   ],
 };
