@@ -1,7 +1,8 @@
+'use client'
 import styles from "./userPlaylist.module.scss";
-import { useState } from "react";
 import Image from "next/image";
 import { userPlaylistData } from "./dummy/userplaylist-dummy-data";
+import { useState } from "react";
 
 type userPlaylistProps = {
   image: string;
