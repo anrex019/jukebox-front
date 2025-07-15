@@ -1,33 +1,43 @@
-'use client';
+"use client";
+import React, { useState, ChangeEvent, ReactNode, forwardRef } from "react";
+import styles from "./InputText.module.scss";
 
-import React, { useState, ChangeEvent } from 'react';
-import styles from './InputText.module.scss';
+interface props {
+  type?: string;
+  placeholder?: string;
+  value?: () => void;
+  name: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
+}
 
-const InputText = () => {
-  const [value, setValue] = useState('');
-  const [state, setState] = useState<'neutral' | 'success' | 'warning' | 'error'>('neutral');
+const InputText = forwardRef<HTMLInputElement, props>((props, ref) => {
+  const [state, setState] = useState<
+    "neutral" | "success" | "warning" | "error"
+  >("neutral");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    props.onChange?.(e);
     const inputValue = e.target.value;
-    setValue(inputValue);
 
-    if (inputValue === '') setState('neutral');
-    else if (inputValue.length < 3) setState('warning');
-    else if (inputValue.length > 10) setState('error');
-    else setState('success');
+    if (inputValue === "") setState("neutral");
+    else if (inputValue.length > 3) setState("warning");
+    else if (inputValue.length < 8) setState("error");
+    else setState("success");
   };
 
   return (
-    <div className={`${styles.inputWrapper} ${styles['state_' + state]}`}>
+    <div className={`${styles.inputWrapper} ${styles["state_" + state]}`}>
       <input
         className={styles.input}
-        type="text"
-        placeholder="Enter text"
-        value={value}
+        type={props.type}
+        placeholder={props.placeholder}
         onChange={handleChange}
+        name={props.name}
+        ref={ref}
       />
     </div>
   );
-};
+});
 
 export default InputText;

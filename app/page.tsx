@@ -1,11 +1,11 @@
 "use client";
-import LogIn from './LogIn/LogIn';
 import styles from './page.module.css';
+import StartLogIn from './StartPointLogIn/StartLogIn';
 
 export default function HomePage() {
   return (
     <main className={styles.wrapper}>
-      <LogIn />
+      <StartLogIn />
     </main>
   );
 }

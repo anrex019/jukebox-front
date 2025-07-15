@@ -1,20 +1,25 @@
-import styles from "./LogIn.module.scss";
+import styles from "./SingUp.module.scss";
 import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMassage } from "./ErorsMessage";
-import { Product } from "./interface/singIn";
 import InputText from "@/components/inputText/InputText";
+import { Product } from "./interface/singup";
 import Link from "next/link";
 
 interface props {
   currentItem?: Product;
 }
-const LogIn = (props: props) => {
+const SingUp = (props: props) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [hidePassword, setHidePassword] = useState(false);
 
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
+  };
+
+  const toggleHidePassword = () => {
+    setHidePassword((prev) => !prev);
   };
 
   const {
@@ -30,9 +35,10 @@ const LogIn = (props: props) => {
   return (
     <div className={styles.container}>
       <Image src="/LogIn.png" alt="photo" width={770} height={729} />
+
       <div className={styles.logInContainerStyle}>
         <div className={styles.containerLogIn}>
-          <p className={styles.sinInStyleText}>Sign In</p>
+          <p className={styles.sinInStyleText}>Sign up</p>
           <form
             className={styles.formContainer}
             onSubmit={handleSubmit(onDone)}
@@ -76,6 +82,31 @@ const LogIn = (props: props) => {
               {errors.password && (
                 <ErrorMassage>{errors.password.message}</ErrorMassage>
               )}
+              <div className={styles.passwordInputWrapper}>
+                <InputText
+                  placeholder="Repeat password"
+                  type={hidePassword ? "text" : "Password"}
+                  {...register("RepeatPassword", {
+                    required: true,
+                    minLength: {
+                      value: 8,
+                      message: "It's not correct",
+                    },
+                  })}
+                />
+
+                <Image
+                  className={styles.inputPositionStyle}
+                  onClick={toggleHidePassword}
+                  src={hidePassword ? "/HideOff.svg" : "/Hide.svg"}
+                  alt="photo"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              {errors.RepeatPassword && (
+                <ErrorMassage>{errors.RepeatPassword.message}</ErrorMassage>
+              )}
               <div className={styles.checkboxContainer}>
                 <input
                   className={styles.inputCheckboxStyle}
@@ -91,12 +122,12 @@ const LogIn = (props: props) => {
               <input
                 className={styles.submitStyle}
                 type="submit"
-                value="Sign in"
+                value="Sign up"
               />
               <p className={styles.account}>
                 Don’t you have an account?{" "}
                 <Link className={styles.singUpStyle} href="/signup">
-                  Sign Up
+                  Sign in
                 </Link>
               </p>
             </div>
@@ -107,4 +138,4 @@ const LogIn = (props: props) => {
   );
 };
 
-export default LogIn;
+export default SingUp;
