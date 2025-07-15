@@ -4,6 +4,7 @@ import styles from './songList.module.scss';
 import { Song } from '../../components/typesSongList/song';
 import HitListHeader from '../../components/HitListHeader/HitListHeader';
 import Icon from '../../components/Icon/Icon';
+import Image from 'next/image';
 
 type Props = {
   songs: Song[];
@@ -37,7 +38,7 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
             <div className={styles.left}>
               <div className={styles.number}>{index + 1}</div>
               <div className={styles.cover}>
-                <img src={song.cover} alt={song.title} />
+                <Image src={song.cover} alt={song.title} width={56} height={56} />
                 <div className={styles.playOverlay}>
                   <Icon name="play" alt="Play icon" width={32} height={32} />
                 </div>

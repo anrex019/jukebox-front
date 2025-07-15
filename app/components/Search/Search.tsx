@@ -1,5 +1,4 @@
 import styles from './Search.module.scss';
-import Image from 'next/image';
 
 const Search = () => {
 

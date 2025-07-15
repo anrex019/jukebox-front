@@ -6,7 +6,6 @@ import { Character } from './interface/Playlis-props.interface';
 import { characters as initialCharacters } from '../Playlist/dummy/Playlist-dummy';
 
 import styles from './Playlist.module.scss';
-import popupStyles from './CreatePlaylistPopup.module.scss';
 
 import DeletePopup from './DeletePopup';
 import CreatePlaylistPopup from './CreatePlaylistPopup';
@@ -193,8 +192,9 @@ const Playlist = () => {
           onClose={() => setShowCreatePopup(false)}
           value={newPlaylistTitle}
           onChange={setNewPlaylistTitle}
-          onConfirm={handleCreatePlaylist}
-        />
+          onConfirm={handleCreatePlaylist} onCreate={function (): void {
+            throw new Error('Function not implemented.');
+          }} />
       )}
     </div>
   );
