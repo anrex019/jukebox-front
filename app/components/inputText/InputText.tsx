@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, ChangeEvent, ReactNode, forwardRef } from "react";
+import React, { useState, ChangeEvent, forwardRef } from "react";
 import styles from "./InputText.module.scss";
 
 interface props {
@@ -39,5 +39,8 @@ const InputText = forwardRef<HTMLInputElement, props>((props, ref) => {
     </div>
   );
 });
+
+// ✅ Fix ESLint warning
+InputText.displayName = "InputText";
 
 export default InputText;
