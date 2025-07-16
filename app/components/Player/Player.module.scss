@@ -1,6 +1,7 @@
 .container {
   display: flex;
-  min-width: 100vW;
+  max-width: 100%;
+  min-width: 100%;
   padding: 16px 24px;
   justify-content: center;
   align-items: center;
@@ -11,10 +12,16 @@
   bottom: 0;
   left: 0;
   overflow-x: hidden;
+  flex-wrap: wrap;
 }
 
 .imgStyles {
   border-radius: 50px;
+  cursor: pointer;
+}
+
+.talgaStyle {
+  display: flex;
   cursor: pointer;
 }
 
@@ -177,4 +184,352 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.pausAndPlayStyle {
+  display: none;
+}
+
+@media screen and (min-width: 1023px) and (max-width: 1234px) {
+  .container {
+    display: flex;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 16px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    border-radius: 4px 4px 0px 0px;
+    background: #1c181d;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+  }
+
+  .imgStyles {
+    width: 60px;
+    height: 60px;
+  }
+
+  .artistName {
+    font-size: 18px;
+  }
+
+  .artistGroupName {
+    font-size: 12px;
+  }
+
+  .artistNameImageContainer {
+    gap: 2px;
+  }
+
+  .artistCardContainer {
+    gap: 14px;
+  }
+
+  .artistContainer {
+    gap: 0px;
+  }
+
+  .playAndPausContainer {
+    gap: 10px;
+  }
+
+  .rangeStyleContainer {
+    width: 520px;
+  }
+}
+
+@media screen and (min-width: 1234px) and (max-width: 1249px) {
+  .container {
+    display: flex;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    border-radius: 4px 4px 0px 0px;
+    background: #1c181d;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+  }
+
+  .imgStyles {
+    width: 60px;
+    height: 60px;
+  }
+
+  .artistName {
+    font-size: 18px;
+  }
+
+  .artistGroupName {
+    font-size: 12px;
+  }
+
+  .artistNameImageContainer {
+    gap: 2px;
+  }
+
+  .artistContainer {
+    gap: 20px;
+  }
+
+  .playAndPausContainer {
+    gap: 10px;
+  }
+
+  .rangeStyleContainer {
+    width: 520px;
+  }
+}
+
+@media screen and (min-width: 1248px) and (max-width: 1296px) {
+  .container {
+    display: flex;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-radius: 4px 4px 0px 0px;
+    background: #1c181d;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+  }
+
+  .imgStyles {
+    width: 60px;
+    height: 60px;
+  }
+
+  .artistName {
+    font-size: 18px;
+  }
+
+  .artistGroupName {
+    font-size: 12px;
+  }
+
+  .artistNameImageContainer {
+    gap: 2px;
+  }
+
+  .artistContainer {
+    gap: 24px;
+  }
+
+  .playAndPausContainer {
+    gap: 14px;
+  }
+
+  .rangeStyleContainer {
+    width: 524px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    display: flex;
+    min-width: 696px;
+    height: 64px;
+    padding: 8px 4px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 41px;
+    border: 1px solid rgba(86, 67, 74, 0.5);
+    background: rgba(16, 13, 18, 0.1);
+    position: fixed;
+    bottom: 24;
+    left: 10;
+    right: 10;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    min-width: 0px;
+  }
+
+  .musicControlContainer {
+    display: none;
+  }
+
+  .playAndPausContainer {
+    display: none;
+  }
+
+  .voisContainer {
+    display: none;
+  }
+
+  .imgStyle {
+    display: none;
+  }
+
+  .talgaStyle {
+    display: none;
+  }
+  .rangeContainer {
+    display: none;
+  }
+
+  .imgStyles {
+    width: 48px;
+    height: 48px;
+  }
+
+  .imgStyle {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 36px;
+    border: 1px solid rgba(86, 67, 74, 0.5);
+    background: rgba(24, 15, 21, 0.1);
+  }
+
+  .artistName {
+    height: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  .artistNameContainer {
+    gap: 2px;
+  }
+
+  .artistGroupName {
+    height: 18px;
+    color: rgba(108, 96, 100, 0.8);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .artistCardContainer {
+    gap: 8px;
+  }
+
+  .controlMusicPlay {
+    display: none;
+  }
+
+  .pausAndPlayStyle {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    display: flex;
+    min-width: 348px;
+    height: 48px;
+    padding: 8px 4px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 41px;
+    border: 1px solid rgba(86, 67, 74, 0.5);
+    background: rgba(16, 13, 18, 0.1);
+    position: fixed;
+    bottom: 24;
+    left: 10;
+    right: 10;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    min-width: 0px;
+
+    .musicControlContainer {
+      display: none;
+    }
+
+    .playAndPausContainer {
+      display: none;
+    }
+
+    .voisContainer {
+      display: none;
+    }
+
+    .imgStyle {
+      display: none;
+    }
+
+    .talgaStyle {
+      display: none;
+    }
+    .rangeContainer {
+      display: none;
+    }
+
+    .imgStyles {
+      width: 40px;
+      height: 40px;
+    }
+
+    .imgStyle {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-radius: 36px;
+      border: 1px solid rgba(86, 67, 74, 0.5);
+      background: rgba(24, 15, 21, 0.1);
+    }
+
+    .artistName {
+      height: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+    .artistNameContainer {
+      gap: 2px;
+    }
+
+    .artistGroupName {
+      height: 18px;
+      color: rgba(108, 96, 100, 0.8);
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+    }
+
+    .artistCardContainer {
+      gap: 8px;
+    }
+
+    .controlMusicPlay {
+      display: none;
+    }
+
+    .pausAndPlayStyle {
+      display: flex;
+    }
+  }
 }

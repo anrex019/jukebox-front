@@ -77,7 +77,13 @@ const Player = () => {
             <div className={styles.artistNameContainer}>
               <div className={styles.artistNameImageContainer}>
                 <p className={styles.artistName}>{currentSong.artistName}</p>
-                <Image src="Talga.svg" alt="photo" width={24} height={24} />
+                <Image
+                  className={styles.talgaStyle}
+                  src="Talga.svg"
+                  alt="photo"
+                  width={24}
+                  height={24}
+                />
               </div>
               <p className={styles.artistGroupName}>{currentSong.songName}</p>
             </div>
@@ -125,7 +131,6 @@ const Player = () => {
               onClick={musicClick}
               width={48}
               height={48}
-              style={{ cursor: "pointer" }}
             />
             <Image
               className={styles.imgStyle}
@@ -134,7 +139,6 @@ const Player = () => {
               onClick={nextSong}
               width={48}
               height={48}
-              style={{ cursor: "pointer" }}
             />
             <Image
               className={styles.imgStyle}
@@ -171,7 +175,6 @@ const Player = () => {
               alt="photo"
               width={24}
               height={24}
-              style={{ cursor: "pointer" }}
             />
           </div>
           <input
@@ -185,12 +188,15 @@ const Player = () => {
               background: `linear-gradient(to right, #A50F46 ${volume}%, #ccc ${volume}%)`,
             }}
           />
+        </div>
+        <div className={styles.pausAndPlayStyle}>
           <Image
             className={styles.imgStyle}
-            src="/Fullscrean.svg"
+            src={click ? "Paus.svg" : "Play.svg"}
             alt="photo"
-            width={24}
-            height={24}
+            onClick={musicClick}
+            width={48}
+            height={48}
           />
         </div>
       </div>
