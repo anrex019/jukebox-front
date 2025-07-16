@@ -4,10 +4,10 @@ import styles from "./SingUp.module.scss";
 import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { ErrorMassage } from "./ErorsMessage";
 import InputText from "@/components/inputText/InputText";
 import { Product } from "./interface/singup";
 import Link from "next/link";
+import { ErrorMassage } from "./ErorsMessage";
 
 interface props {
   currentItem?: Product;
