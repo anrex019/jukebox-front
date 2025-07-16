@@ -26,9 +26,7 @@ export default function RootLayout({
       </head>
       <body>
         <RecoilWrapper>
-          <Header />
           {children}
-          <Player />
         </RecoilWrapper>
       </body>
     </html>
