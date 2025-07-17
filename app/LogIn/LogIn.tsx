@@ -1,17 +1,24 @@
 "use client";
 import styles from "./LogIn.module.scss";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMassage } from "./ErorsMessage";
 import { Product } from "./interface/singIn";
 import InputText from "@/components/inputText/InputText";
 import Link from "next/link";
+import axios from "axios";
+import Button from "@/components/Button/Button";
 
 interface props {
   currentItem?: Product;
 }
+
 const LogIn = (props: props) => {
+  useEffect(() => {
+    axios.get("https://jukebox-back.onrender.com/").then(() => {});
+  }, []);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
@@ -26,17 +33,19 @@ const LogIn = (props: props) => {
     defaultValues: props.currentItem,
   });
 
-  const onDone = () => {};
+  const onLogin = (value: any) => {
+
+  };
 
   return (
     <div className={styles.container}>
-      <Image src="/LogIn.png" alt="photo" width={770} height={729} />
+      <Image src="/musiclogo.png" alt="photo" width={770} height={729} />
       <div className={styles.logInContainerStyle}>
         <div className={styles.containerLogIn}>
           <p className={styles.sinInStyleText}>Sign In</p>
           <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(onDone)}
+            onSubmit={handleSubmit(onLogin)}
           >
             <div className={styles.singInContainer}>
               <InputText
@@ -89,11 +98,7 @@ const LogIn = (props: props) => {
               </div>
             </div>
             <div className={styles.submitContainer}>
-              <input
-                className={styles.submitStyle}
-                type="submit"
-                value="Sign in"
-              />
+              <Button title={"Sing in"} />
               <p className={styles.account}>
                 Don’t you have an account?{" "}
                 <Link className={styles.singUpStyle} href="/register">

@@ -1,4 +1,3 @@
-
 "use client";
 import styles from "./SingUp.module.scss";
 import Image from "next/image";
@@ -8,6 +7,7 @@ import InputText from "@/components/inputText/InputText";
 import { Product } from "./interface/singup";
 import Link from "next/link";
 import { ErrorMassage } from "./ErorsMessage";
+import Button from "@/components/Button/Button";
 
 interface props {
   currentItem?: Product;
@@ -36,7 +36,7 @@ const SingUp = (props: props) => {
 
   return (
     <div className={styles.container}>
-      <Image src="/LogIn.png" alt="photo" width={770} height={729} />
+      <Image src="/musiclogo.png" alt="photo" width={770} height={729} />
 
       <div className={styles.logInContainerStyle}>
         <div className={styles.containerLogIn}>
@@ -121,11 +121,7 @@ const SingUp = (props: props) => {
               </div>
             </div>
             <div className={styles.submitContainer}>
-              <input
-                className={styles.submitStyle}
-                type="submit"
-                value="Sign up"
-              />
+              <Button title={"Sign up"} />
               <p className={styles.account}>
                 Don’t you have an account?{" "}
                 <Link className={styles.singUpStyle} href="/">
