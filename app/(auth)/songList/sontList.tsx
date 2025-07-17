@@ -1,4 +1,3 @@
-// ✅ SongList.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -80,9 +79,9 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
                 <div className={styles.title}>{song.title}</div>
                 <div className={styles.artist}>{song.artist}</div>
                 <div className={styles.durationTwo}>
-                <Icon name="clock" alt="Clock icon" width={24} height={24} />
-                {song.duration}
-              </div>
+                  <Icon name="clock" alt="Clock icon" width={24} height={24} />
+                  {song.duration}
+                </div>
               </div>
             </div>
 
@@ -100,18 +99,16 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
                   setActiveMenu(activeMenu === song.id ? null : song.id);
                 }}
               >
+
                 <Icon
-                 
-                  name={isMobile ? 'arvici' : 'dots'}
+                  name={isMobile ? 'burgermenu' : 'dots'}
                   alt="Options"
                   width={24}
                   height={24}
-                 
                 />
 
                 {activeMenu === song.id && (
                   <>
-                    {!isMobile ? (
                       <div className={styles.optionsMenu}>
                         <div
                           className={styles.menuItem}
@@ -134,39 +131,7 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
                           Delete
                         </div>
                       </div>
-                    ) : (
-                      <div
-                        className={styles.modalOverlay}
-                        onClick={() => setActiveMenu(null)}
-                      >
-                        <div
-                          className={styles.createModal}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <div className={styles.dragHandle}></div>
-                          <div
-                            className={styles.menuItem}
-                            onClick={() => {
-                              setShowPlaylistModal(true);
-                              setActiveMenu(null);
-                            }}
-                          >
-                            <Icon name="add" alt="Add" width={20} height={20} />
-                            Add Playlist
-                          </div>
-                          <div
-                            className={`${styles.menuItem} ${styles.delete}`}
-                            onClick={() => {
-                              setConfirmDeleteId(song.id);
-                              setActiveMenu(null);
-                            }}
-                          >
-                            <Icon name="delete" alt="Delete" width={20} height={20} />
-                            Delete
-                          </div>
-                        </div>
-                      </div>
-                    )}
+                  
                   </>
                 )}
               </div>
@@ -203,8 +168,11 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
       )}
 
       {showPlaylistModal && (
-        <div className={styles.modalOverlay} onClick={() => setShowPlaylistModal(false)}>
-          <div className={styles.createModal} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.modalOverlay} onClick={(e) => {
+          setShowPlaylistModal(false)
+          e.stopPropagation()
+        }}>
+          <div className={styles.addListStyle}>
             {isMobile && <div className={styles.dragHandle}></div>}
             <div className={styles.modalHeader}>
               <h2 className={styles.createTitle}>Create Playlist</h2>
@@ -249,12 +217,7 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
         </div>
       )}
 
-      {showAlert && (
-        <div className={styles.alert}>
-          <Icon name="alert" alt="alert icon" width={20} height={20} />
-          <span>Rauf-40 Added your playlist</span>
-        </div>
-      )}
+   
     </div>
   );
 };

@@ -10,6 +10,19 @@
   gap: 16px;
 }
 
+.addListStyle {
+  display: flex;
+  width: 730px;
+  padding: 32px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(86, 67, 74, 0.50);
+  background: rgba(234, 21, 99, 0.01);
+  backdrop-filter: blur(6.25px);
+}
+
 .songCard {
   display: flex;
   justify-content: space-between;
@@ -24,6 +37,26 @@
     background: rgba(26, 15, 22, 0.1);
     backdrop-filter: blur(6px);
   }
+}
+
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.createModal {
+  margin: 0 auto;
+  align-self: center;
 }
 
 .left {
@@ -155,8 +188,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   display: flex;
@@ -397,14 +428,14 @@
     bottom: 0;
     left: 0;
     right: 0;
-   
+
     border-radius: 16px;
     border: 1px solid rgba(86, 67, 74, 0.50);
     background: rgba(39, 37, 44, 0.60);
     backdrop-filter: blur(6.25px);
     padding: 20px;
     z-index: 1000;
-    
+
   }
 
 
@@ -416,14 +447,17 @@
     display: flex;
   }
 
-  
-  .date,.duration {
+
+  .date,
+  .duration {
     display: none;
   }
 
   .modalOverlay {
     background: rgba(0, 0, 0, 0.6);
     position: fixed;
+    bottom: 0;
+    right: 0;
     inset: 0;
     display: flex;
     align-items: flex-end;
@@ -495,10 +529,10 @@
   }
 
   .modal {
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .createModal {
-    width: 90%;
+    width: 100%;
   }
 }

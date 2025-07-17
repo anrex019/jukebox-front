@@ -1,7 +1,6 @@
 "use client";
 import PopularArtists from './(auth)/ArtistPage/ArtistPage';
 import HomePages from './(auth)/page';
-import SongList from './(auth)/songList/sontList';
 import TopCharts from './(auth)/songListPage/TopCharts';
 import HitListHeader from './components/HitListHeader/HitListHeader';
 import styles from './page.module.css';
