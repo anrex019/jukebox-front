@@ -1,6 +1,8 @@
 .container {
     display: flex;
-    width: 1416px;
+    max-width: 1416px;
+    width: 90%;
+    margin: 0 auto;
     height: 64px;
     padding: 24px 8px;
     justify-content: space-between;
@@ -90,6 +92,11 @@
     gap: 4px;
 }
 
+@media screen and (max-width: 1000px) {
+    .allImgContainerHeader {
+        display: none;
+    }
+}
 
 
 .searchContainer {

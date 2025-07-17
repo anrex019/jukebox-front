@@ -1,9 +1,37 @@
 .header {
+    max-width: 1416px;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
   }
+
+  @media (max-width: 1495px) {
+  .header {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1250px) {
+  .header {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1040px) {
+  .header {
+    width: 40%;
+  }
+}
+
+@media (max-width: 744px) {
+  .header {
+    width: 25%;
+  }
+}
+
   
   .title {
     font-size: 28px;

@@ -1,9 +1,11 @@
 .wrapper {
     display: flex;
-    width: 1416px;
+    max-width: 1416px;
+    width: 90%;
+    margin: 0 auto;
     flex-direction: column;
-    align-items: flex-start;
     gap: 24px;
+    flex-wrap: wrap;
 }
 
 .headerRow {
@@ -35,14 +37,14 @@
     align-items: center;
     gap: 12px;
     align-self: stretch;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;         
+    overflow: hidden; 
 }
 
 
 .artistCard {
     height: 225px;
     width: 226px;
-    flex: 1 0 0;
     border-radius: 16px;
     border: 1px solid rgba(234, 21, 99, 0.70);
     background: rgba(23, 17, 20, 0.30);
@@ -54,14 +56,36 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
-
 }
+
+@media (max-width: 1495px) {
+  .artistGrid .artistCard:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 1250px) {
+  .artistGrid .artistCard:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  .artistGrid .artistCard:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .artistGrid .artistCard:nth-child(3) {
+    display: none;
+  }
+}
+
 
 .artistCard:hover {
     background: rgba(0, 0, 0, 0.5);
   }
-
-
 
 .artistImage {
     width: 100px;
@@ -75,4 +99,19 @@
     font-size: 14px;
     font-weight: 500;
     margin: 0;
+}
+
+@media (max-width: 450px) {
+  .artistGrid .artistCard:nth-child(2), .artistCard:nth-child(1), .artistCard:nth-child(3){
+    display: flex;
+    width: 140px;
+    height: 144px;
+  }
+
+  .artistImage {
+    width: 46px;
+    height: 46px;
+  }
+
+  
 }

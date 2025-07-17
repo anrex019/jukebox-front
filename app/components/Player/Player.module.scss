@@ -1,4 +1,7 @@
 .container {
+  max-width: 1416px;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   min-width: 100vW;
   padding: 16px 24px;
@@ -177,4 +180,10 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        display: none;
+    }
 }
