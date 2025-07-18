@@ -4,8 +4,8 @@ import PopularArtists from "@/components/PopularArtists/PopularArtists";
 import UserPlaylistsList from "@/(auth)/userPlaylist/userPlaylistComp";
 import Header from "@/components/Header/Header";
 import Player from "@/components/Player/Player";
-import TopHits from "./songListPage/TopHits";
-import TopCharts from "./songListPage/TopHits";
+import TopHits from "../songListPage/TopHits";
+import TopCharts from "../songListPage/TopHits";
 
 const HomePage = () => {
   return (
