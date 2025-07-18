@@ -15,10 +15,6 @@ interface props {
 }
 
 const LogIn = (props: props) => {
-  useEffect(() => {
-    axios.get("https://jukebox-back.onrender.com/").then(() => {});
-  }, []);
-
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
@@ -34,7 +30,10 @@ const LogIn = (props: props) => {
   });
 
   const onLogin = (value: any) => {
-
+    axios.post("https://jukebox-back.onrender.com/", value)
+        .then(r => {
+          console.log(r)
+        });
   };
 
   return (
