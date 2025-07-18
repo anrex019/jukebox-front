@@ -8,6 +8,8 @@ import { Product } from "./interface/singup";
 import Link from "next/link";
 import { ErrorMassage } from "./ErorsMessage";
 import Button from "@/components/Button/Button";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 interface props {
   currentItem?: Product;
@@ -15,6 +17,19 @@ interface props {
 const SingUp = (props: props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [hidePassword, setHidePassword] = useState(false);
+
+  const router = useRouter();
+
+  const onSubmit = (Values: any) => {
+    axios
+      .post("https://jukebox-back.onrender.com/auth/register")
+      .then((r) => {
+        router.push("/singin");
+      })
+      .catch(() => {
+        console.log("registracias ver gadis");
+      });
+  };
 
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
@@ -32,8 +47,6 @@ const SingUp = (props: props) => {
     defaultValues: props.currentItem,
   });
 
-  const onDone = () => {};
-
   return (
     <div className={styles.container}>
       <Image src="/musiclogo.png" alt="photo" width={770} height={729} />
@@ -43,7 +56,7 @@ const SingUp = (props: props) => {
           <p className={styles.sinInStyleText}>Sign up</p>
           <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(onDone)}
+            onSubmit={handleSubmit(onSubmit)}
           >
             <div className={styles.singInContainer}>
               <InputText
