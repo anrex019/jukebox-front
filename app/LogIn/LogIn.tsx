@@ -30,7 +30,7 @@ const LogIn = (props: props) => {
   });
 
   const onLogin = (value: any) => {
-    axios.post("https://jukebox-back.onrender.com/", value)
+    axios.post("https://jukebox-back.onrender.com/auth/login", value)
         .then(r => {
           console.log(r)
         });
