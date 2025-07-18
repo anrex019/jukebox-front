@@ -9,6 +9,8 @@ import InputText from "@/components/inputText/InputText";
 import Link from "next/link";
 import axios from "axios";
 import Button from "@/components/Button/Button";
+import { setCookie } from "@/cookies";
+import { useRouter } from "next/navigation";
 
 interface props {
   currentItem?: Product;
@@ -16,6 +18,8 @@ interface props {
 
 const LogIn = (props: props) => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const router = useRouter();
 
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
@@ -30,10 +34,12 @@ const LogIn = (props: props) => {
   });
 
   const onLogin = (value: any) => {
-    axios.post("https://jukebox-back.onrender.com/auth/login", value)
-        .then(r => {
-          console.log(r)
-        });
+    axios
+      .post("https://jukebox-back.onrender.com/auth/login", value)
+      .then((r) => {
+        setCookie("token", r.data.token, 60);
+        router.push('/')
+      });
   };
 
   return (

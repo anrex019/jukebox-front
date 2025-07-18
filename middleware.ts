@@ -9,7 +9,7 @@ export default async function middleware(request: NextRequest) {
   const pathIsPublic = publicRoutes.includes(path);
 
   if (pathIsPublic && token) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
+    return NextResponse.redirect(new URL('/', request.url));
   }
 
   if (!token && !pathIsPublic) {

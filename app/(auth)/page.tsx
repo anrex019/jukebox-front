@@ -7,7 +7,7 @@ import Player from "@/components/Player/Player";
 import TopHits from "./songListPage/TopHits";
 import TopCharts from "./songListPage/TopHits";
 
-const HomePages = () => {
+const HomePage = () => {
   return (
     <>
     <Header />
@@ -26,4 +26,4 @@ const HomePages = () => {
     </>
   );
 };
-export default HomePages;
+export default HomePage;
