@@ -6,6 +6,7 @@ import TopCharts from "@/components/songListPage/TopCharts";
 import UserPlaylistsList from "@/(auth)/userPlaylist/userPlaylistComp";
 import Header from "@/components/Header/Header";
 import Player from "@/components/Player/Player";
+import Footer from "@/components/mobileAndTabletFooter/footer"
 
 const HomePages = () => {
   return (
@@ -23,6 +24,7 @@ const HomePages = () => {
       </div>
     </div>
     <Player />
+    <Footer />
     </>
   );
 };
