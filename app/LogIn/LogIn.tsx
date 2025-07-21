@@ -1,18 +1,25 @@
 "use client";
 import styles from "./LogIn.module.scss";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMassage } from "./ErorsMessage";
 import { Product } from "./interface/singIn";
 import InputText from "@/components/inputText/InputText";
 import Link from "next/link";
+import axios from "axios";
+import Button from "@/components/Button/Button";
+import { setCookie } from "@/cookies";
+import { useRouter } from "next/navigation";
 
 interface props {
   currentItem?: Product;
 }
+
 const LogIn = (props: props) => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const router = useRouter();
 
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
@@ -26,17 +33,24 @@ const LogIn = (props: props) => {
     defaultValues: props.currentItem,
   });
 
-  const onDone = () => {};
+  const onLogin = (value: any) => {
+    axios
+      .post("https://jukebox-back.onrender.com/auth/login", value)
+      .then((r) => {
+        setCookie("token", r.data.token, 60);
+        router.push("/");
+      });
+  };
 
   return (
     <div className={styles.container}>
-      <Image src="/LogIn.png" alt="photo" width={770} height={729} />
+      <Image src="/musiclogo.png" alt="photo" width={770} height={729} />
       <div className={styles.logInContainerStyle}>
         <div className={styles.containerLogIn}>
           <p className={styles.sinInStyleText}>Sign In</p>
           <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(onDone)}
+            onSubmit={handleSubmit(onLogin)}
           >
             <div className={styles.singInContainer}>
               <InputText
@@ -89,11 +103,7 @@ const LogIn = (props: props) => {
               </div>
             </div>
             <div className={styles.submitContainer}>
-              <input
-                className={styles.submitStyle}
-                type="submit"
-                value="Sign in"
-              />
+              <Button title={"Sing in"} />
               <p className={styles.account}>
                 Don’t you have an account?{" "}
                 <Link className={styles.singUpStyle} href="/register">

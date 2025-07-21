@@ -1,4 +1,3 @@
-
 "use client";
 import styles from "./SingUp.module.scss";
 import Image from "next/image";
@@ -8,6 +7,9 @@ import InputText from "@/components/inputText/InputText";
 import { Product } from "./interface/singup";
 import Link from "next/link";
 import { ErrorMassage } from "./ErorsMessage";
+import Button from "@/components/Button/Button";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 interface props {
   currentItem?: Product;
@@ -15,6 +17,21 @@ interface props {
 const SingUp = (props: props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [hidePassword, setHidePassword] = useState(false);
+
+  const router = useRouter();
+
+  const onSubmit = (Values: any) => {
+    axios
+      .post("https://jukebox-back.onrender.com/auth/register", Values)
+      .then((r) => {
+        console.log('awdawdawdawdawdawdawd')
+        router.push("/");
+      })
+      .catch((err) => {
+        alert(err.response.request.response)
+        console.error(err.response.request.response);
+      });
+  };
 
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
@@ -32,20 +49,25 @@ const SingUp = (props: props) => {
     defaultValues: props.currentItem,
   });
 
-  const onDone = () => {};
-
   return (
     <div className={styles.container}>
-      <Image src="/LogIn.png" alt="photo" width={770} height={729} />
+      <Image src="/musiclogo.png" alt="photo" width={770} height={729} />
 
       <div className={styles.logInContainerStyle}>
         <div className={styles.containerLogIn}>
           <p className={styles.sinInStyleText}>Sign up</p>
           <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(onDone)}
+            onSubmit={handleSubmit(onSubmit)}
           >
             <div className={styles.singInContainer}>
+              <InputText
+                placeholder="Enter your Name"
+                {...register("name", {
+                  required: true,
+                })}
+              />
+
               <InputText
                 placeholder="Enter your Email"
                 {...register("email", {
@@ -121,11 +143,7 @@ const SingUp = (props: props) => {
               </div>
             </div>
             <div className={styles.submitContainer}>
-              <input
-                className={styles.submitStyle}
-                type="submit"
-                value="Sign up"
-              />
+              <Button title={"Sign up"} />
               <p className={styles.account}>
                 Don’t you have an account?{" "}
                 <Link className={styles.singUpStyle} href="/">
