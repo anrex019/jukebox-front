@@ -38,7 +38,7 @@ const LogIn = (props: props) => {
       .post("https://jukebox-back.onrender.com/auth/login", value)
       .then((r) => {
         setCookie("token", r.data.token, 60);
-        router.push('/')
+        router.push("/");
       });
   };
 

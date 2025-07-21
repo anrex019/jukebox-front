@@ -22,12 +22,14 @@ const SingUp = (props: props) => {
 
   const onSubmit = (Values: any) => {
     axios
-      .post("https://jukebox-back.onrender.com/auth/register")
+      .post("https://jukebox-back.onrender.com/auth/register", Values)
       .then((r) => {
-        router.push("/singin");
+        console.log('awdawdawdawdawdawdawd')
+        router.push("/");
       })
-      .catch(() => {
-        console.log("registracias ver gadis");
+      .catch((err) => {
+        alert(err.response.request.response)
+        console.error(err.response.request.response);
       });
   };
 
@@ -59,6 +61,13 @@ const SingUp = (props: props) => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className={styles.singInContainer}>
+              <InputText
+                placeholder="Enter your Name"
+                {...register("name", {
+                  required: true,
+                })}
+              />
+
               <InputText
                 placeholder="Enter your Email"
                 {...register("email", {
