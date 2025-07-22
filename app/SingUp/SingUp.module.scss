@@ -39,7 +39,6 @@
   gap: 12px;
 }
 
-
 .inputPositionStyle {
   position: absolute;
   bottom: 12px;
@@ -174,3 +173,38 @@
   flex-direction: column;
   gap: 24px;
 }
+
+// @media screen and (min-width: 1024px) and (max-width: 1280px) {
+
+// }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .containerLogIn {
+    display: flex;
+    width: 505px;
+    height: 505px;
+    padding: 264px 24px 263px 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .musicLogoStyles {
+    width: 1007px;
+    height: 665px;
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logInContainerStyle {
+    position: absolute;
+  }
+}
+
+// @media screen and (max-width: 767px) {
+
+// }
