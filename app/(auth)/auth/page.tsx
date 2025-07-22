@@ -10,7 +10,7 @@ import TopCharts from "../songListPage/TopHits";
 const HomePage = () => {
   return (
     <>
-    <Header />
+    {/* <Header /> */}
     <div className={styles.container}>
       <TopBanner />
       <div className={styles.hitStyle}>
@@ -22,7 +22,7 @@ const HomePage = () => {
         <TopCharts />
       </div>
     </div>
-    <Player />
+    {/* <Player /> */}
     </>
   );
 };
