@@ -23,8 +23,7 @@ const SingUp = (props: props) => {
   const onSubmit = (Values: any) => {
     axios
       .post("https://jukebox-back.onrender.com/auth/register", Values)
-      .then((r) => {
-        console.log('awdawdawdawdawdawdawd')
+      .then(() => {
         router.push("/");
       })
       .catch((err) => {
