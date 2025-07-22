@@ -51,7 +51,7 @@ const SingUp = (props: props) => {
 
   return (
     <div className={styles.container}>
-      <Image src="/musiclogo.png" alt="photo" width={770} height={729} />
+      <Image className={styles.musicLogoStyles} src="/musiclogo.png" alt="photo" width={770} height={729} />
 
       <div className={styles.logInContainerStyle}>
         <div className={styles.containerLogIn}>
