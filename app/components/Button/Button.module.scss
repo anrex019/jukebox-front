@@ -9,20 +9,20 @@
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background-color: #EA1563;
+  background-color: #ea1563;
   border: none;
   color: $textPrimary;
   cursor: pointer;
 }
 
 .buttonStyles:hover:enabled {
-  color: #EA1563;
-  background-color: rgba(234, 21, 99, 0.10);
+  color: #ea1563;
+  background-color: rgba(234, 21, 99, 0.1);
 }
 
 .buttonStyles:active:enabled {
-  color: #EA1563;
-  border: 1px solid #EA1563;
+  color: #ea1563;
+  border: 1px solid #ea1563;
 }
 
 .buttonStyles:disabled {
@@ -31,11 +31,17 @@
 }
 
 .buttonStyles:hover:disabled {
-  background-color: #EA1563;
+  background-color: #ea1563;
   color: #fff;
 }
 
 .buttonStyles:active:disabled {
-  color: #EA1563;
+  color: #ea1563;
   background: none;
+}
+
+@media screen and (max-width: 768px) {
+  .buttonStyles {
+    width: 327px;
+  }
 }

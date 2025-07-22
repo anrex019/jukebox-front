@@ -154,11 +154,21 @@
   gap: 24px;
 }
 
-// @media screen and (min-width: 1024px) and (max-width: 1280px) {
+@media screen and (min-width: 1024px) and (max-width: 1468px) {
+  .containerLogIn {
+    width: 593px;
+  }
 
-// }
+  .logInContainerStyle {
+    padding: 68px 44px;
+  }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .musicLogoStyles {
+    width: 637px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .containerLogIn {
     display: flex;
     width: 505px;
@@ -196,14 +206,15 @@
   }
 
   .musicLogoStyles {
-    width: 375px;
-    height: 665px;
+    width: 753px;
+    height: 648px;
   }
 
   .container {
     position: relative;
     display: flex;
     justify-content: center;
+    overflow: hidden;
   }
 
   .logInContainerStyle {
@@ -226,7 +237,10 @@
 
   .singInContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+  }
+
+  .inputPositionStyle {
+    left: 290px;
   }
 }
