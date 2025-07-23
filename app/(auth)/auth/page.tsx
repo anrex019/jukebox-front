@@ -8,7 +8,7 @@ import Footer from "@/components/mobileAndTabletFooter/footer";
 import TopCharts from "../songListPage/TopCharts";
 import TopHits from "../songListPage/TopHits";
 
-const HomePage = () => {
+const HomePages = () => {
   return (
     <>
       <Header />
@@ -28,4 +28,4 @@ const HomePage = () => {
     </>
   );
 };
-export default HomePage;
+export default HomePages;
