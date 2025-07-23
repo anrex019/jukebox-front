@@ -3,6 +3,7 @@ import styles from "./Player.module.scss";
 import Image from "next/image";
 import { useAudioHook } from "../../Hooks/useAudioHook";
 import { songs } from "./interface/songsProps.interface";
+import { useEffect, useState } from "react";
 
 const Player = () => {
   const {
@@ -27,15 +28,34 @@ const Player = () => {
     toggleRepeat,
   } = useAudioHook(songs);
 
-  if (!currentSong) {
-    return <div>No songs available</div>;
-  }
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (!currentSong) return <div>No songs available</div>;
 
   return (
     <>
       <div key={currentSong.id} className={styles.container}>
         <audio ref={audioRef} preload="metadata" />
-        <div className={styles.artistContainer}>
+        <div
+          className={styles.artistContainer}
+          onClick={() => {
+            if (isMobile) {
+              setPopupVisible((prev) => !prev);
+            }
+          }}
+        >
           <div className={styles.artistCardContainer}>
             <Image
               className={styles.imgStyles}
@@ -65,7 +85,10 @@ const Player = () => {
               alt="random"
               width={24}
               height={24}
-              onClick={toggleRandom}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleRandom();
+              }}
             />
             <Image
               className={styles.imgStyle}
@@ -73,10 +96,29 @@ const Player = () => {
               alt="repeat"
               width={24}
               height={24}
-              onClick={toggleRepeat}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleRepeat();
+              }}
             />
           </div>
         </div>
+
+        {isMobile && popupVisible && (
+          <div className={styles.popup}>
+            <div
+              className={styles.trash}
+              onClick={() => {
+                setPopupVisible(false);
+                console.log("delete currentSong");
+              }}
+            >
+              <Image src="/trash.png" alt="trash" width={24} height={24} />
+              <p>Delete</p>
+            </div>
+          </div>
+        )}
+
         <div className={styles.controlMusicPlay}>
           <div className={styles.playAndPausContainer}>
             <Image
@@ -134,6 +176,7 @@ const Player = () => {
             <p className={styles.time}>{formatTime(duration)}</p>
           </div>
         </div>
+
         <div className={styles.voisContainer}>
           <div
             className={styles.favouriteAndVoisContainer}
@@ -159,6 +202,7 @@ const Player = () => {
             }}
           />
         </div>
+
         <div className={styles.pausAndPlayStyle}>
           <Image
             className={styles.imgStyle}
