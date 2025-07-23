@@ -5,7 +5,7 @@ import StartLogIn from './StartPointLogIn/StartLogIn';
 export default function HomePage() {
   return (
     <main className={styles.wrapper}>
-      {/* <StartLogIn /> */}
+      <StartLogIn />
     </main>
   );
 }
