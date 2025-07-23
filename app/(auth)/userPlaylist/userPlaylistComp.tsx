@@ -15,7 +15,7 @@ function UserPlaylist({ image, title }: userPlaylistProps) {
   const [showSecondPopup, setShowSecondPopup] = useState(false);
 
   return (
-    <>
+    <div className={styles.jailHouse}>
       <div className={styles.jail}>
         <Image className={styles.image} src={image} alt={title} width={226} height={195} />
         <div className={styles.hoverImg}>
@@ -122,7 +122,7 @@ function UserPlaylist({ image, title }: userPlaylistProps) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 export default function UserPlaylistsList() {

@@ -4,25 +4,27 @@ import PopularArtists from "@/components/PopularArtists/PopularArtists";
 import UserPlaylistsList from "@/(auth)/userPlaylist/userPlaylistComp";
 import Header from "@/components/Header/Header";
 import Player from "@/components/Player/Player";
+import Footer from "@/components/mobileAndTabletFooter/footer";
+import TopCharts from "../songListPage/TopCharts";
 import TopHits from "../songListPage/TopHits";
-import TopCharts from "../songListPage/TopHits";
 
 const HomePage = () => {
   return (
     <>
-    {/* <Header /> */}
-    <div className={styles.container}>
-      <TopBanner />
-      <div className={styles.hitStyle}>
-        <TopHits />
+      <Header />
+      <div className={styles.container}>
+        <TopBanner />
+        <div className={styles.hitStyle}>
+          <TopHits />
+        </div>
+        <UserPlaylistsList />
+        <PopularArtists />
+        <div className={styles.hitStyle}>
+          <TopCharts />
+        </div>
       </div>
-      <UserPlaylistsList />
-      <PopularArtists />
-      <div className={styles.hitStyle}>
-        <TopCharts />
-      </div>
-    </div>
-    {/* <Player /> */}
+      <Player />
+      <Footer />
     </>
   );
 };

@@ -5,7 +5,7 @@ import SongList from "../../(auth)/songList/sontList";
 const TopCharts = () => {
   return (
     <div>
-      <SongList title="Top Hits" songs={songs} />;{" "}
+      <SongList title="Top Hits" songs={songs} />{" "}
     </div>
   );
 };

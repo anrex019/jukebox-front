@@ -41,8 +41,8 @@ const Header = () => {
         <div className={styles.usersProfileStylesCOntainer}>
           <Image
             className={styles.imgStyles}
-            src=""
-            alt=""
+            src="/"
+            alt="/"
             width={52}
             height={52}
           />

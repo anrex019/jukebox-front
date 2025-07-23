@@ -1,0 +1,221 @@
+@import "../../colorStyles/colors.module.scss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: inter;
+}
+
+.usersProfileStylesCOntainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.imgStyles {
+    border-radius: 75px;
+    background: #FFF;
+    cursor: pointer;
+}
+
+
+.usertsTextContainer {
+    color: #FFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
+.containerImgHeader {
+    display: flex;
+    flex-direction: column;
+    height: 35px;
+    width: 75px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+
+.containerImgHeader:hover {
+    display: flex;
+    height: 35px;
+    width: 75px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 197px;
+    
+
+    .headerTextContainer {
+        color: #A50F46;
+    }
+
+}
+
+
+.headerTextContainer {
+    color: #6C6064;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+
+
+.allImgContainerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    max-width: 744px;
+    width: 100%;
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.create {
+  color: $textPrimary;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.playlistTitle {
+  color: $textPrimary;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.input {
+  border-radius: 8px;
+  border: 1px solid rgba(86, 67, 74, 0.5);
+  background: rgba(234, 21, 99, 0.01);
+  padding: 12px 16px;
+  color: $textPrimary;
+  margin-bottom: 10px;
+}
+
+.input::placeholder {
+  color: gray;
+}
+
+.inputAndTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notNow {
+  padding: 16px 24px;
+  max-width: 277px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #56434a;
+  background: rgba(86, 67, 74, 0.2);
+  backdrop-filter: blur(12px);
+  color: $textPrimary;
+}
+
+.notNow:hover {
+  background: rgba(86, 67, 74, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.notNow:active {
+  background: rgba(86, 67, 74, 0.6);
+}
+
+.createBtn {
+  background-color: $buttonBackground;
+  color: $textPrimary;
+  max-width: 277px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+}
+
+.createBtn:hover {
+  background-color: $strokePrimary;
+}
+
+.createBtn:active {
+  background-color: $buttonStrokePrimary;
+}
+
+@media screen and (min-width: 400px) and (max-width: 744px) {
+    .allImgContainerHeader {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 78px;
+        border-top: 1px solid rgba(86, 67, 74, 0.50);
+        background: rgba(22, 10, 15, 0.50);
+        backdrop-filter: blur(10px);
+    }
+
+    .playlistPopup {
+    max-width: 670px;
+    width: 100%;
+    margin: auto;
+    height: 256px;
+    padding: 32px;
+    border-radius: 16px 16px 0px 0px;
+    border-top: 1px solid rgba(86, 67, 74, 0.50);
+    background: rgba(234, 21, 99, 0.01);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+}
+
+@media screen and (max-width: 400px) {
+    .allImgContainerHeader {
+        width: 100%;
+        height: 78px;
+        width: 100%; 
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-top: 1px solid rgba(86, 67, 74, 0.50);
+    background: rgba(234, 21, 99, 0.01);
+    backdrop-filter: blur(10px);
+    }
+
+    .playlistPopup {
+    text-align: left;   
+    width: 100%;
+    height: 256px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 16px 16px 0px 0px;
+    border-top: 1px solid rgba(86, 67, 74, 0.50);
+    background: rgba(234, 21, 99, 0.01);
+    backdrop-filter: blur(10px);
+}
+}

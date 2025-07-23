@@ -1,7 +1,10 @@
 .songListWrapper {
+  max-width: 1316px;
+  width: 90%;
+  margin: 0 auto;
   padding: 10px;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: inter;
 }
 
 .songList {
@@ -31,6 +34,11 @@
   background: rgba(24, 12, 21, 0.3);
   border: 1px solid rgba(234, 21, 99, 0.5);
   border-radius: 14px;
+  width: 100%; 
+  max-width: 1416px; 
+  transition: max-width 0.3s ease;
+  margin: 0 auto;
+  cursor: pointer;
 
   &:hover {
     border: 1px solid rgba(86, 67, 77, 0.5);
@@ -40,23 +48,43 @@
 }
 
 
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+@media (max-width: 1495px) {
+  .songCard {
+    max-width: 90%;
+  }
 }
 
-.createModal {
-  margin: 0 auto;
-  align-self: center;
+@media (max-width: 1250px) {
+  .songCard {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 1040px) {
+  .songCard {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 744px) {
+  .songCard {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+  .songCard {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 400px) {
+  .songCard {
+    max-width: 25%;
+  }
+  .date {
+    display: none;
+  }
 }
 
 .left {
@@ -141,6 +169,12 @@
   align-items: center;
   gap: 4px;
   color: #ccc;
+}
+
+@media screen and (max-width: 400px) {
+  .duration{
+    display: none;
+  }
 }
 
 .options {
