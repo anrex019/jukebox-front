@@ -73,12 +73,7 @@ html, body {
 
 
 .allImgContainerHeader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    max-width: 744px;
-    width: 100%;
+    display: none;
 }
 
 .popupHeader {
@@ -161,7 +156,7 @@ html, body {
   background-color: $buttonStrokePrimary;
 }
 
-@media screen and (min-width: 400px) and (max-width: 744px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .allImgContainerHeader {
         position: fixed;
         bottom: 0;
@@ -170,27 +165,16 @@ html, body {
         border-top: 1px solid rgba(86, 67, 74, 0.50);
         background: rgba(22, 10, 15, 0.50);
         backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        max-width: 1044px;
+        width: 100%;
     }
-
-    .playlistPopup {
-    max-width: 670px;
-    width: 100%;
-    margin: auto;
-    height: 256px;
-    padding: 32px;
-    border-radius: 16px 16px 0px 0px;
-    border-top: 1px solid rgba(86, 67, 74, 0.50);
-    background: rgba(234, 21, 99, 0.01);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 767px) {
     .allImgContainerHeader {
         width: 100%;
         height: 78px;
@@ -200,22 +184,13 @@ html, body {
         left: 0;
         right: 0;
         border-top: 1px solid rgba(86, 67, 74, 0.50);
-    background: rgba(234, 21, 99, 0.01);
-    backdrop-filter: blur(10px);
-    }
-
-    .playlistPopup {
-    text-align: left;   
-    width: 100%;
-    height: 256px;
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    border-radius: 16px 16px 0px 0px;
-    border-top: 1px solid rgba(86, 67, 74, 0.50);
-    background: rgba(234, 21, 99, 0.01);
-    backdrop-filter: blur(10px);
-}
+        background: rgba(234, 21, 99, 0.01);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        max-width: 1044px;
+        width: 100%;
+    }  
 }
