@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useAudioHook } from "../../Hooks/useAudioHook";
 import { songs } from "./interface/songsProps.interface";
 import { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 const Player = () => {
   const {
     audioRef,
@@ -30,7 +30,8 @@ const Player = () => {
 
   const [popupVisible, setPopupVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
+  const [showPlayerPagePopup, setShowPlayerPagePopup] = useState(false);
+const router = useRouter()
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1024);
@@ -46,7 +47,15 @@ const Player = () => {
 
   return (
     <>
-      <div key={currentSong.id} className={styles.container}>
+      <div
+        key={currentSong.id}
+        className={styles.container}
+        onClick={() => {
+        if (isMobile) {
+          router.push("/music")
+        }
+        }}
+      >
         <audio ref={audioRef} preload="metadata" />
         <div
           className={styles.artistContainer}

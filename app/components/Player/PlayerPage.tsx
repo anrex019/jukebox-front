@@ -1,3 +1,4 @@
+'use client'
 import styles from "./PlayerPage.module.scss";
 import { useAudioHook } from "@/Hooks/useAudioHook";
 import Image from "next/image";
