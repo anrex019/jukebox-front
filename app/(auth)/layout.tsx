@@ -14,7 +14,7 @@ const AuthorisedLayot: React.FC<AuthorisedLayoutProps> = ({ children }) => {
   return (
     <>
       <RecoilRoot>
-        {/* <Header /> */}
+        <Header />
         {children}
         <Player />
         <Footer />

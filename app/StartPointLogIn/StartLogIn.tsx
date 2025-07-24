@@ -1,4 +1,4 @@
-import LogIn from "@/LogIn/LogIn";
+import LogIn from "@/LogIn/page";
 
 
 const StartLogIn = () => {
