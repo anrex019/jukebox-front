@@ -24,6 +24,7 @@ export default function RootLayout({
       </head>
       <body>
         <RecoilWrapper>
+          {/* <Header/> */}
           {children}
         </RecoilWrapper>
       </body>

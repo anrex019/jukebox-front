@@ -110,7 +110,6 @@ const Player = () => {
               className={styles.trash}
               onClick={() => {
                 setPopupVisible(false);
-                console.log("delete currentSong");
               }}
             >
               <Image src="/trash.png" alt="trash" width={24} height={24} />
