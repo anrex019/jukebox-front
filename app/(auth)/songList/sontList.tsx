@@ -40,7 +40,7 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
 
   return (
     <div className={styles.songListWrapper}>
-      <HitListHeader title={title} onClick={() => console.log('See All clicked')} />
+      {/* <HitListHeader title={title} onClick={() => console.log('See All clicked')} />
 
       <div className={styles.dropdownWrapper}>
         <div
@@ -58,7 +58,7 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
             <div className={styles.dropdownItem}>See Last Month</div>
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className={styles.songList}>
         {songs.map((song, index) => (
