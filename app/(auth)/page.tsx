@@ -8,7 +8,7 @@ import TopHits from "./songListPage/TopHits";
 const HomePages = () => {
   return (
     <>
-      {/* <div className={styles.container}>
+      {<div className={styles.container}>
         <TopBanner />
         <div className={styles.hitStyle}>
           <TopHits />
@@ -18,7 +18,7 @@ const HomePages = () => {
         <div className={styles.hitStyle}>
           <TopCharts />
         </div>
-      </div> */}
+      </div> }
     </>
   );
 };
