@@ -30,8 +30,7 @@ const Player = () => {
 
   const [popupVisible, setPopupVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [showPlayerPagePopup, setShowPlayerPagePopup] = useState(false);
-const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1024);
@@ -51,9 +50,9 @@ const router = useRouter()
         key={currentSong.id}
         className={styles.container}
         onClick={() => {
-        if (isMobile) {
-          router.push("/music")
-        }
+          if (isMobile) {
+            router.push("/music");
+          }
         }}
       >
         <audio ref={audioRef} preload="metadata" />
@@ -76,13 +75,6 @@ const router = useRouter()
             <div className={styles.artistNameContainer}>
               <div className={styles.artistNameImageContainer}>
                 <p className={styles.artistName}>{currentSong.artistName}</p>
-                <Image
-                  className={styles.talgaStyle}
-                  src="Talga.svg"
-                  alt="photo"
-                  width={24}
-                  height={24}
-                />
               </div>
               <p className={styles.artistGroupName}>{currentSong.songName}</p>
             </div>
@@ -216,7 +208,10 @@ const router = useRouter()
             className={styles.imgStyle}
             src={click ? "Paus.svg" : "Play.svg"}
             alt="photo"
-            onClick={musicClick}
+            onClick={(e) => {
+              e.stopPropagation();
+              musicClick();
+            }}
             width={48}
             height={48}
           />
