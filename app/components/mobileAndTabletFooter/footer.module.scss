@@ -1,79 +1,62 @@
 @import "../../colorStyles/colors.module.scss";
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: inter;
-}
-
 .usersProfileStylesCOntainer {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-
 
 .imgStyles {
-    border-radius: 75px;
-    background: #FFF;
-    cursor: pointer;
+  border-radius: 75px;
+  background: #fff;
+  cursor: pointer;
 }
-
 
 .usertsTextContainer {
-    color: #FFF;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-
-
 
 .containerImgHeader {
-    display: flex;
-    flex-direction: column;
-    height: 35px;
-    width: 75px;
-    padding: 12px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 35px;
+  width: 75px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
 }
-
 
 .containerImgHeader:hover {
-    display: flex;
-    height: 35px;
-    width: 75px;
-    padding: 12px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    border-radius: 197px;
-    
+  display: flex;
+  height: 35px;
+  width: 75px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 197px;
 
-    .headerTextContainer {
-        color: #A50F46;
-    }
-
+  .headerTextContainer {
+    color: #a50f46;
+  }
 }
-
 
 .headerTextContainer {
-    color: #6C6064;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
+  color: #6c6064;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
 }
 
-
-
 .allImgContainerHeader {
-    display: none;
+  display: none;
 }
 
 .popupHeader {
@@ -157,40 +140,40 @@ html, body {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .allImgContainerHeader {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 78px;
-        border-top: 1px solid rgba(86, 67, 74, 0.50);
-        background: rgba(22, 10, 15, 0.50);
-        backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-        max-width: 1044px;
-        width: 100%;
-    }
+  .allImgContainerHeader {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 78px;
+    border-top: 1px solid rgba(86, 67, 74, 0.5);
+    background: rgba(22, 10, 15, 0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    max-width: 1044px;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .allImgContainerHeader {
-        width: 100%;
-        height: 78px;
-        width: 100%; 
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        border-top: 1px solid rgba(86, 67, 74, 0.50);
-        background: rgba(234, 21, 99, 0.01);
-        backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-        max-width: 1044px;
-        width: 100%;
-    }  
+  .allImgContainerHeader {
+    width: 100%;
+    height: 78px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid rgba(86, 67, 74, 0.5);
+    background: rgba(234, 21, 99, 0.01);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    max-width: 1044px;
+    width: 100%;
+  }
 }
