@@ -72,7 +72,7 @@ const PlayerPage = () => {
     setBack(true);
     setTimeout(() => {
       setBack(false);
-      router.push('/')
+      router.push("/");
     });
   };
 
