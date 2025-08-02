@@ -1,7 +1,5 @@
 import { atom } from "recoil";
-import { songs } from "@/components/Player/interface/songsProps.interface";
 
-// Index of current song
 export const currentSongIndexAtom = atom<number>({
   key: "currentSongIndex",
   default: 0,
