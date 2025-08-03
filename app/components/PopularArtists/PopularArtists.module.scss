@@ -1,11 +1,10 @@
 .wrapper {
   display: flex;
   max-width: 1416px;
-  width: 100%;
-  margin: 0 auto;
   flex-direction: column;
   gap: 24px;
   flex-wrap: wrap;
+  font-family: inter;
 }
 
 .headerRow {
@@ -101,17 +100,14 @@
   margin: 0;
 }
 
-@media (max-width: 450px) {
-  .artistGrid .artistCard:nth-child(2),
-  .artistCard:nth-child(1),
-  .artistCard:nth-child(3) {
-    display: flex;
-    width: 140px;
-    height: 144px;
+@media (max-width: 507px) {
+  .artistCard {
+    width: 150px;
+    height: 149px;
   }
 
   .artistImage {
-    width: 46px;
-    height: 46px;
+    width: 60px;
+    height: 60px;
   }
 }

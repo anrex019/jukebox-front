@@ -132,7 +132,7 @@ export default function UserPlaylistsList() {
             <p className={styles.popularText}>Popular Album</p>
             <p className={styles.seeTextStyle}>See All</p>
         </div>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "11px" }}>
+      <div className={styles.artistContainer}>
         {userPlaylistData.map((playlist, index) => (
           <UserPlaylist
             key={index}

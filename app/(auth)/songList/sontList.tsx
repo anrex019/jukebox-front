@@ -96,6 +96,10 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
                     />
                     {song.duration}
                   </div>
+                  <div className={styles.durations}>
+                  <Icon name="clock" alt="Clock icon" width={24} height={24} />
+                  {song.duration}
+                </div>
                 </div>
               </div>
 
@@ -191,7 +195,7 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
 
         {showPlaylistModal && (
           <div
-            className={styles.modalOverlay}
+            className={styles.modalOverlays}
             onClick={(e) => {
               setShowPlaylistModal(false);
               e.stopPropagation();

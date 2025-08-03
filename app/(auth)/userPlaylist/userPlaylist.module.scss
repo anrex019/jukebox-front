@@ -6,6 +6,7 @@
   padding: 5px;
   flex-direction: column;
   gap: 24px;
+  font-family: inter;
 }
 
 .header {
@@ -37,8 +38,6 @@
   width: 226px;
   height: auto;
 }
-
-
 
 .image {
   border-radius: 12px;
@@ -235,12 +234,34 @@
   align-self: center;
 }
 
+.artistContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
 @media screen and (max-width: 600px) {
   .image {
     width: 168px;
-    height:148px;
-  }  
+    height: 148px;
+  }
   .jail {
     width: 160px;
+  }
+
+  .threeDots {
+    top: 117px;
+    left: 136px;
+  }
+
+  .play {
+    top: 35px;
+    left: 44px;
+  }
+
+  .hoverImg {
+    width: 168px;
+    height: 148px;
   }
 }
