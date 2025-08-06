@@ -109,7 +109,7 @@ const LogIn = (props: props) => {
               </div>
             </div>
             <div className={styles.submitContainer}>
-              <Button title={"Sing in"} />
+              <Button title={"Sign in"} />
               <p className={styles.account}>
                 Don’t you have an account?{" "}
                 <Link className={styles.singUpStyle} href="/register">
