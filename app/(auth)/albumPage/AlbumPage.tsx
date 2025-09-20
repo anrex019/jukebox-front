@@ -1,0 +1,156 @@
+"use client";
+import styles from "./AlbumPage.module.scss";
+import Image from "next/image";
+import { useState } from "react";
+import { userPlaylistData } from "./dummy/albumPage-dummy-data";
+
+type userPlaylistProps = {
+  image: string;
+  title: string;
+  minTitle: string;
+};
+
+function AlbumPage({ image, title, minTitle }: userPlaylistProps) {
+  const [showPopup, setShowPopup] = useState(false);
+  const [showInnerPopup, setShowInnerPopup] = useState(false);
+  const [showSecondPopup, setShowSecondPopup] = useState(false);
+
+  return (
+    <div className={styles.jailHouse}>
+      <div className={styles.jail}>
+        <Image
+          className={styles.image}
+          src={image}
+          alt={title}
+          width={226}
+          height={195}
+        />
+        <div className={styles.hoverImg}>
+          <Image
+            className={styles.play}
+            src="/playButton.svg"
+            alt="photo"
+            width={80}
+            height={80}
+          />
+          <Image
+            onClick={() => setShowPopup((prev) => !prev)}
+            className={styles.threeDots}
+            src="/threeDots.png"
+            alt="photo"
+            width={24}
+            height={24}
+          />
+        </div>
+        {showPopup && (
+          <div className={styles.popup}>
+            <div
+              onClick={() => {
+                setShowInnerPopup(true);
+                setShowSecondPopup(false);
+                setShowPopup(false);
+              }}
+              className={styles.playlist}
+            >
+              <Image
+                src="/addToPlaylist.png"
+                alt="photo"
+                width={24}
+                height={24}
+              />
+              <p>Add To Playlist</p>
+            </div>
+            <div
+              onClick={() => {
+                setShowSecondPopup(true);
+                setShowInnerPopup(false);
+                setShowPopup(false);
+              }}
+              className={styles.trash}
+            >
+              <Image src="/trash.png" alt="photo" width={24} height={24} />
+              <p>Delete</p>
+            </div>
+          </div>
+        )}
+        <div className={styles.titleContainer}>
+          <p className={styles.minTitleStyle}>{minTitle}</p>
+          <p className={styles.title}>{title}</p>
+        </div>
+      </div>
+      {showInnerPopup && (
+        <div className={styles.innerPopup}>
+          <div className={styles.popupHeader}>
+            <h2 className={styles.create}>Create Playlist</h2>
+            <Image
+              onClick={() => setShowInnerPopup(false)}
+              src="/close.svg"
+              alt="photo"
+              width={40}
+              height={40}
+            />
+          </div>
+          <div className={styles.inputAndTitle}>
+            <p className={styles.playlistTitle}>Playlist Title:</p>
+            <input
+              type="text"
+              placeholder="Filter Playlist"
+              className={styles.input}
+            />
+          </div>
+          <div className={styles.buttons}>
+            <button
+              onClick={() => setShowInnerPopup(false)}
+              className={styles.notNow}
+            >
+              Not Now
+            </button>
+            <button className={styles.createBtn}>Create</button>
+          </div>
+        </div>
+      )}
+      {showSecondPopup && (
+        <div className={[styles.innerPopup, styles.secondPopup].join(" ")}>
+          <Image
+            className={styles.warning}
+            src="/warning.svg"
+            alt="photo"
+            width={32}
+            height={32}
+          />
+          <p className={styles.playlistTitle}>
+            Are you sure you want to delete this Chart?
+          </p>
+          <div className={styles.buttons}>
+            <button
+              onClick={() => setShowSecondPopup(false)}
+              className={styles.notNow}
+            >
+              No
+            </button>
+            <button className={styles.createBtn}>Yes</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+export default function UserPlaylistsList() {
+  return (
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <p className={styles.popularText}>Popular Album</p>
+      </div>
+      <div className={styles.artistContainer}>
+        {userPlaylistData.map((playlist, index) => (
+          <AlbumPage
+            key={index}
+            image={playlist.image}
+            minTitle={playlist.minTitle}
+            title={playlist.title}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}

@@ -1,6 +1,6 @@
 
 import { songs } from "@/components/data/charts-data";
-import SongList from "../../(auth)/songList/sontList";
+import SongList from "../../components/songList/sontList";
 
 const TopCharts = () => {
   return (

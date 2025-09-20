@@ -5,13 +5,12 @@ type Props = {
   onClick?: () => void;
 };
 
-const HitListHeader = ({ title, onClick }: Props) => {
+const HitListHeaders = ({ title, onClick }: Props) => {
   return (
     <div className={styles.header}>
       <h2 className={styles.title}>{title}</h2>
-      <button className={styles.seeAll} onClick={onClick}>See All</button>
     </div>
   );
 };
 
-export default HitListHeader;
+export default HitListHeaders;

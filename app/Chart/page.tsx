@@ -1,18 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./songList.module.scss";
-import { Song } from "../../components/typesSongList/song";
-import HitListHeader from "../../components/HitListHeader/HitListHeader";
-import Icon from "../../components/Icon/Icon";
+import styles from "./Chart.module.scss";
 import Image from "next/image";
+import { Song } from "@/components/typesSongList/song";
+import HitListHeaders from "@/components/HitListHeader/Chart";
+import Icon from "@/components/Icon/Icon";
 
 type Props = {
   songs: Song[];
   title: string;
 };
 
-const SongList = ({ songs: initialSongs, title }: Props) => {
+export default function Chart({ songs: initialSongs, title }: Props) {
   const [songs, setSongs] = useState(initialSongs);
   const [activeMenu, setActiveMenu] = useState<number | null>(null);
   const [confirmDeleteId, setConfirmDeleteId] = useState<number | null>(null);
@@ -41,28 +41,28 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
   return (
     <div className={styles.songListWrapper}>
       <div className={styles.pageStyle}>
-        <HitListHeader
+        <HitListHeaders
           title={title}
           onClick={() => console.log("See All clicked")}
         />
 
-        {/* <div className={styles.dropdownWrapper}>
-        <div
-          className={styles.dropdownButton}
-          onClick={() => setDropdownOpen(!dropdownOpen)}
-        >
-          <span>Top 50 Today</span>
-          <Icon name="arrow-down" alt="Dropdown" width={16} height={16} />
-        </div>
-
-        {dropdownOpen && (
-          <div className={styles.dropdownMenu}>
-            <div className={styles.dropdownItem}>See All</div>
-            <div className={styles.dropdownItem}>See Last Week</div>
-            <div className={styles.dropdownItem}>See Last Month</div>
+        <div className={styles.dropdownWrapper}>
+          <div
+            className={styles.dropdownButton}
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
+            <span>Top 50 Today</span>
+            <Icon name="arrow-down" alt="Dropdown" width={16} height={16} />
           </div>
-        )}
-      </div> */}
+
+          {dropdownOpen && (
+            <div className={styles.dropdownMenu}>
+              <div className={styles.dropdownItem}>See All</div>
+              <div className={styles.dropdownItem}>See Last Week</div>
+              <div className={styles.dropdownItem}>See Last Month</div>
+            </div>
+          )}
+        </div>
 
         <div className={styles.songList}>
           {songs.map((song, index) => (
@@ -72,7 +72,6 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
               onClick={() => setActiveMenu(null)}
             >
               <div className={styles.left}>
-                {!isMobile && <div className={styles.number}>{index + 1}</div>}
                 <div className={styles.cover}>
                   <Image
                     src={song.cover}
@@ -97,9 +96,14 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
                     {song.duration}
                   </div>
                   <div className={styles.durations}>
-                  <Icon name="clock" alt="Clock icon" width={24} height={24} />
-                  {song.duration}
-                </div>
+                    <Icon
+                      name="clock"
+                      alt="Clock icon"
+                      width={24}
+                      height={24}
+                    />
+                    {song.duration}
+                  </div>
                 </div>
               </div>
 
@@ -248,6 +252,4 @@ const SongList = ({ songs: initialSongs, title }: Props) => {
       </div>
     </div>
   );
-};
-
-export default SongList;
+}

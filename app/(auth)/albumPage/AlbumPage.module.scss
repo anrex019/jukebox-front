@@ -1,4 +1,4 @@
-@import "./../../colorStyles/colors.module.scss";
+@import "@/../../../colorStyles/colors.module.scss";
 
 .container {
   display: flex;
@@ -14,6 +14,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1427px;
 }
 
 .popularText {
@@ -37,6 +38,9 @@
   position: relative;
   width: 226px;
   height: auto;
+  flex-direction: column;
+  gap: 16px;
+  display: flex;
 }
 
 .image {
@@ -120,9 +124,12 @@
 }
 
 .title {
-  color: $textPrimary;
-  text-align: center;
-  margin-top: 16px;
+  color: #a3a3a3;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .innerPopup {
@@ -239,6 +246,22 @@
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
+}
+
+.minTitleStyle {
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 @media screen and (max-width: 600px) {

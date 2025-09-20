@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
 import styles from "./Header.module.scss";
 import Image from "next/image";
 import Search from "../Search/Search";
 import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 
 const Header = () => {
   const [click, setClick] = useState(false);
@@ -50,7 +51,8 @@ const Header = () => {
         </div>
 
         <div className={styles.allImgContainerHeader}>
-          <div
+          <Link
+            href="/"
             onMouseEnter={() => setIsHoveredHome(true)}
             onMouseLeave={() => setIsHoveredHome(false)}
             className={styles.containerImgHeader}
@@ -63,9 +65,10 @@ const Header = () => {
               height={24}
             />
             <p className={styles.headerTextContainer}>Home</p>
-          </div>
+          </Link>
 
-          <div
+          <Link
+            href="/PlaylistsPage"
             className={styles.containerImgHeader}
             onMouseEnter={() => setIsHoveredPlaylist(true)}
             onMouseLeave={() => setIsHoveredPlaylist(false)}
@@ -78,9 +81,10 @@ const Header = () => {
               height={24}
             />
             <p className={styles.headerTextContainer}>Playlist</p>
-          </div>
+          </Link>
 
-          <div
+          <Link
+            href="/artistsPage"
             className={styles.containerImgHeader}
             onMouseEnter={() => setIsHoveredArtists(true)}
             onMouseLeave={() => setIsHoveredArtists(false)}
@@ -93,9 +97,10 @@ const Header = () => {
               height={24}
             />
             <p className={styles.headerTextContainer}>Artists</p>
-          </div>
+          </Link>
 
-          <div
+          <Link
+            href="/Chart"
             className={styles.containerImgHeader}
             onMouseEnter={() => setIsHoveredCharts(true)}
             onMouseLeave={() => setIsHoveredCharts(false)}
@@ -108,9 +113,10 @@ const Header = () => {
               height={24}
             />
             <p className={styles.headerTextContainer}>Charts</p>
-          </div>
+          </Link>
 
-          <div
+          <Link
+            href="/AlbumPage"
             className={styles.containerImgHeader}
             onMouseEnter={() => setIsHoveredAlbums(true)}
             onMouseLeave={() => setIsHoveredAlbums(false)}
@@ -118,12 +124,12 @@ const Header = () => {
             <Image
               className={styles.imgHeaderContainer}
               src={isHoveredAlbums ? "/Albums-hover.svg" : "/Albums.svg"}
-              alt="photo"
+              alt="Albums"
               width={24}
               height={24}
             />
             <p className={styles.headerTextContainer}>Albums</p>
-          </div>
+          </Link>
         </div>
         {click === false && (
           <div onClick={onClicked} className={styles.searchContainer}>
